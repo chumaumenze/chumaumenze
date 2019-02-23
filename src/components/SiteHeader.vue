@@ -2,9 +2,8 @@
   #site-header(:class="{'open': menuOpen}")
     // Header
     header
-      transition(name="fade-out")
-        span(class="site-title", @click="toggleMenu($event, false)")
-          router-link(to="/" class="logo" v-text="siteTitle")
+      site-logo(:logo="logo", @click.native="toggleMenu($event, false)" isText)
+
       .nav-icon(@click="toggleMenu")
         span(v-for="k in 3" :key="k")
 
@@ -22,21 +21,28 @@
             li {{ email }}
             li
               .social
-                a(v-for="(social, key) in socialLinks" :key="key" :href='social.url')
-                  i.fab(:class="social.iconName")
+                a(v-for="(social, key) in socialLinks" :key="key" :href="social.url", :aria-label="social.name")
+                  i.fa(:class="social.iconName", aria-hidden="true")
 
 </template>
 
 <script lang="ts">
   import { Component, Vue, Prop } from "vue-property-decorator";
+  import SiteLogo from "@/components/SiteLogo.vue";
 
-  @Component
+  import { MenuPageOptions, SocialLinkOptions } from "@/interfaces";
+
+  @Component({
+    components: {
+      SiteLogo
+    }
+  })
   export default class SiteHeader extends Vue {
     private menuOpen: boolean = false;
-    private siteTitle: string = "CHUMAUMENZE 🇳🇬";
+    @Prop({type: String, required: true}) private logo?: string[];
     @Prop({type: String, required: true}) private email?: string;
-    @Prop({type: Array, required: true}) private sitePages?: object[];
-    @Prop({type: Array, required: true}) private socialLinks?: object[];
+    @Prop({type: Array, required: true}) private sitePages?: MenuPageOptions[];
+    @Prop({type: Array, required: true}) private socialLinks?: SocialLinkOptions[];
 
     private toggleMenu(this: any, event: any, status: boolean) {
       status !== undefined ? this.menuOpen = status : this.menuOpen = !this.menuOpen;
@@ -58,17 +64,6 @@
       width: 100%;
       position: absolute;
       z-index: 5;
-
-      span {
-        > a {
-          text-transform: uppercase;
-          text-decoration: none solid rgb(255, 255, 255);
-          font-size: 22px;
-          font-weight: 800;
-          line-height: 38.4px;
-          color: rgb(255, 255, 255);
-        }
-      }
 
       .nav-icon {
         float: right;
@@ -140,12 +135,21 @@
                 text-decoration: none;
                 transform: translateY(47px);
                 display: block;
-                transition: all ease 0.4s 0.0s;
                 color: $white;
+                transition: all ease 0.4s 0.0s;
 
                 &:hover {
-                  color: $red;
+                  color: $lava;
                 }
+              }
+
+              &:hover {
+                font-size: 42px;
+                margin: 10px auto;
+                transition: 0.5s;
+              }
+              &:not(:hover) {
+                transition: 0.9s;
               }
             }
           }
@@ -169,14 +173,17 @@
               .social {
                 margin-top: 10px;
                 a {
-                  font-size: 13px;
+                  font-size: 15px;
                   text-decoration: none;
                   margin-right: 10px;
                   color: $lava;
                   i {
+                    color: $white;
+                    transition: 0.8s;
+
                     &:hover {
-                      transition: all ease 0.3s;
-                      transform: rotate(360deg);
+                      font-size: 20px;
+                      transition: 0.8s;
                       // color: $red;
                     }
                   }
@@ -270,10 +277,4 @@
     }
   }
 
-  .fade-out-enter-active, .fade-out-leave-active {
-    transition: opacity .9s;
-  }
-  .fade-out-enter, .fade-out-leave-to {
-    opacity: 0;
-  }
 </style>
