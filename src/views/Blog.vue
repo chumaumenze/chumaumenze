@@ -1,13 +1,14 @@
-<template>
+<template lang="pug">
   
 </template>
 
-<script>
-  export default {
-    name: "Blog",
-  };
+<script lang="ts">
+  import { Component, Vue } from "vue-property-decorator";
+
+  @Component
+  export default class Blog extends Vue {}
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

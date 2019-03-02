@@ -56,7 +56,7 @@
     width: 100%;
     padding: 60px 0 41px;
     position: fixed;
-    z-index: 0;
+    z-index: -1;
     bottom: 0;
     background: $black;
     border-bottom: solid 6px $red;
