@@ -1,6 +1,6 @@
 <template lang="pug">
   #site-home
-    section.main(style='height: 796px; transform: scale(1); opacity: 1;')
+    section.main
       site-social(:socialLinks="links")
       .main-content
         .col-md-6.col-xs-12
@@ -27,10 +27,25 @@
   @Component({
     components: {
       SiteSocial
-    },
+    }
   })
   export default class Home extends Vue {
     private links: SocialLinkOptions[] = this.$store.state.links;
+
+    public mounted(this: any) {
+      const $ = this.$;
+      const where =  window.pageYOffset || document.documentElement.scrollTop;
+      $(this.$el.querySelector("section.main")).css({
+        height: this.$(window).height() + "px",
+        transform: `scale(${(100 - where / 100) / 100})`,
+        opacity : (1 - (where / 20) / 19)
+      });
+
+      $(this.$el.querySelector("div.main-content")).css({
+        "margin-top":  this.$(window).height() + "px"
+      });
+    }
+
   }
 </script>
 
@@ -42,6 +57,10 @@
       display: table;
       width: 100%;
       // position: fixed;
+      @media (max-width: 991px) {
+        background: url(../../assets/images/person-bg.jpg) no-repeat right;
+        background-size: cover;
+      }
 
       .main-content {
         padding: 0 60px;

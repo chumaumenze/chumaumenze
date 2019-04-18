@@ -3,7 +3,6 @@
   #site-root
     preloader
     site-header(:email="owner.email", :sitePages="menuPages", :socialLinks="links", :logo="siteTitle")
-    site-social(:socialLinks="links")
     router-view
     site-footer(:socialLinks="links", :email="owner.email", :siteOwner="owner.fullName", :logo="siteTitle")
 </template>
