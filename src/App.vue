@@ -5,5 +5,7 @@
 </template>
 
 <style lang="scss">
-#app {}
+  @import url("./assets/css/util.css");
+
+  #app {}
 </style>

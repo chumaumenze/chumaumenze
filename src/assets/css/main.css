@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
-@import url("fontawesome-all.min.css");
+@import url("../fonts/font-awesome/fontawesome-all.min.css");
 
 a.attribute {
     color: rgba(255, 255, 255, 0);
@@ -20,7 +20,6 @@ section, summary, time, mark, audio, video {
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
 }
 
@@ -226,7 +225,6 @@ a:hover {
     transform: translate3d(0, 0, 0);
     /* Set your background with this */
 
-    background: #348cb2 url("../images/bg.jpg") bottom left;
     background: #348cb2 url("../images/bg.jpg") bottom left;
     background-repeat: repeat-x;
     height: 100%;
