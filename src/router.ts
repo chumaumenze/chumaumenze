@@ -14,17 +14,6 @@ export default new Router({
       component: Home,
     },
     {
-      path: "/lens",
-      alias: "/photos",
-      name: "lens",
-      component: () => import("./views/Lens.vue"),
-    },
-    {
-      path: "/blog",
-      name: "blog",
-      component: () => import("./views/Blog.vue"),
-    },
-    {
       path: "*",
       redirect: "/",
     },
