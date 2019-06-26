@@ -37,13 +37,13 @@
 </template>
 
 <script lang="ts">
-    import {Vue, Component} from 'vue-property-decorator';
+    import {Vue, Component} from "vue-property-decorator";
 
     @Component
     export default class Aerial extends Vue {
         private year: number = 2019;
         private mounted() {
-            window.onload = () => document.body.classList.remove('is-preload');
+            window.onload = () => document.body.classList.remove("is-preload");
             window.ontouchmove = () => false;
             window.onorientationchange = () => document.body.scrollTop = 0;
         }
