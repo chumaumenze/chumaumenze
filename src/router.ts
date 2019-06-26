@@ -15,9 +15,8 @@ export default new Router({
     // },
     {
       path: "/",
-      alias: "/photos",
-      name: "lens",
-      component: () => import("./views/wip/ComingSoonB.vue"),
+      name: "blog",
+      component: () => import("./views/wip/ComingSoonA.vue"),
     },
     {
       path: "*",
