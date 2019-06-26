@@ -24,7 +24,7 @@
                 a.icon.solid.fa-photo-video(href='https://lens.chumaumenze.com' target="blank" ref="no-opener")
                   span.label Photos
               li
-                a.icon.solid.fa-blog(href='https://blog.chumaumaumenze.com' target="blank" ref="no-opener")
+                a.icon.solid.fa-blog(href='https://blog.chumaumenze.com' target="blank" ref="no-opener")
                   span.label Blog
               li
                 a.icon.solid.fa-envelope(href='mailto:hello@chumaumenze.com')
