@@ -8,21 +8,19 @@
         post-meta(:post="this.$page.post")
       hr
       .post-content-box.center
-        g-image(alt='Cover image', v-if='$page.post.cover_image', :src='$page.post.cover_image')
+        g-image.u-max-full-width(alt='Cover image', v-if='$page.post.cover_image', :src='$page.post.cover_image')
         .post-content(v-html='$page.post.content')
-    
-      // Add comment widgets here
+    //hr
+    // Add comment widgets here
+    div#graphcomment.bubble(data-gc_type="sidebar")
     hr
 
 </template>
 
-<style lang="css" scoped>
-#blog-post {
-  /*margin-top: 6em;*/
-}
-.post-content-box {
-  margin-top: 3em;
-}
+<style lang="scss" scoped>
+  .post-content {
+    /* TODO: Add margin-top to head elements */
+  }
 </style>
 
 <script>

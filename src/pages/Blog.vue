@@ -44,9 +44,6 @@ export default {
     return {
       stickyNavbar: false
     }
-  },
-  mounted() {
-    console.log(this)
   }
 }
 </script>

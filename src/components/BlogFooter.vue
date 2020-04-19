@@ -1,11 +1,18 @@
 <template lang="pug">
-  div#footer
+  footer#blog-footer
     // Footer
-    footer
-        span.copyright(v-html="`&#169; ${currentYear} Zuko`")
-        span.right Powered by 
-          a(href="//gridsome.org") Gridsome
+    span.u-pull-left(v-html="`&#169; ${currentYear} ${$static.metadata.siteName}`")
+    span.u-pull-right Powered by 
+      a(href="//gridsome.org") Gridsome
 </template>
+
+<static-query>
+  query {
+    metadata {
+      siteName
+    }
+  }
+</static-query>
 
 <script>
   export default {
@@ -17,12 +24,3 @@
     }
   }
 </script>
-
-<style lang="scss" scoped>
-div#footer {
-  margin: 2em auto;
-}
-span.right {
-  float: right;
-}
-</style>
