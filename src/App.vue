@@ -32,7 +32,7 @@ export default {
       ]
     }
   },
-  mounte() {
+  mounted() {
     let $head = document.head
     let gtm_script = document.createElement('script')
     gtm_script.innerText = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

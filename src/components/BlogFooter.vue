@@ -1,7 +1,8 @@
 <template lang="pug">
   footer#blog-footer
     // Footer
-    span.u-pull-left(v-html="`&#169; ${currentYear} ${$static.metadata.siteName}`")
+    span.u-pull-left {{`&#169; ${currentYear} `}}
+      g-link(to="/") {{$static.metadata.siteName}}
     span.u-pull-right Powered by 
       a(href="//gridsome.org") Gridsome
 </template>

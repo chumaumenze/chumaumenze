@@ -1,6 +1,6 @@
 <template lang="pug">
-  header#blog-nav(v-bind:class ="{'has-docked-nav':stickyNavbar}")
-    template(v-if="!stickyNavbar")
+  header#blog-nav(v-bind:class ="{'has-docked-nav':isSticky}")
+    slot(v-if="!isSticky")
       h1 {{$static.metadata.siteName}}
       p.subtitle {{$static.metadata.siteDescription}}
     
@@ -27,25 +27,23 @@
 </template>
 
 <style lang="scss">
+  @import "~/assets/style/variables";
+
+  /* Navbar */
   .navbar {
+    background-color: $light-mode__bg;
     display: block;
     margin-bottom: 3.5rem;
   }
-  
-  /* Navbar */
-  /*.navbar + .docs-section {*/
-  /*  border-top-width: 0;*/
-  /*}*/
 
   .navbar,
   .navbar-spacer {
     display: block;
     width: 100%;
     height: 6.5rem;
-    /*background: #fff;*/
     z-index: 99;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
+    border-top: 1px solid $light-mode__navbar-border-top;
+    border-bottom: 1px solid $light-mode__navbar-border-bottom;
   }
 
   .navbar-spacer {
@@ -75,11 +73,15 @@
     margin-right: 35px;
     text-decoration: none;
     line-height: 6.5rem;
-    /*color: #222;*/
+    color: $light-mode__nav-link;
+  }
+  
+  .navbar-link:hover {
+    color: $light-mode__nav-link-hover;
   }
 
   .navbar-link.active {
-    color: #c2c2c2;
+    text-decoration: underline;
   }
 
   .has-docked-nav .navbar {
@@ -107,8 +109,8 @@
     position: absolute;
     /*top: 0;*/
     /*left: 0;*/
-    background: #fff;
-    border: 1px solid #eee;
+    background: $light-mode__popover-bg;
+    border: 1px solid $light-mode__popover-border;
     border-radius: 4px;
     top: 92%;
     left: -50%;
@@ -154,10 +156,10 @@
 
   .popover-link {
     position: relative;
-    color: #222;
+    color: $light-mode__popover-link;
     display: block;
     padding: 8px 20px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid $light-mode__popover-border;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1.0rem;
@@ -176,46 +178,78 @@
   }
 
   .popover-link:hover {
-    color: #fff;
-    background: #33C3F0;
+    color: $light-mode__popover-link-hover;
+    background: $light-mode__popover-link-bg-hover;
   }
 
   .popover-link:hover,
   .popover-item:first-child .popover-link:hover:after {
-    border-bottom-color: #33C3F0;
+    border-bottom-color: $light-mode__popover-link-bg-hover;
   }
 
+  /* Media Queries
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-  @media (prefers-color-scheme: dark) {
-    .navbar {
-      /*background-color: rgba(17, 18, 22, 1);*/
-      a {
-        color: #636363;
-  
-        &.active {
-          color: #c2c2c2;
-        }
-  
-        &:hover {
-          color: #787878;
-        }
-      }
-    }
-  }
-
+  /* Larger than mobile */
   @media (min-width: 400px) {
     .navbar-link {
       font-size: 9px;
       margin-right: 15px;
     }
   }
-  
-  /*@media (min-width: 550px) {}*/
 
   @media (min-width: 550px) and (max-width: 750px) {
     .navbar-link {
       font-size: 9px;
       margin-right: 20px;
+    }
+  }
+
+  /* Larger than tablet */
+  @media (min-width: 750px) {
+    .navbar-link {
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .2rem;
+      margin-right: 35px;
+      text-decoration: none;
+      line-height: 6.5rem;
+      color: #222;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    .navbar {
+      background-color: $dark-mode__bg;
+      .navbar-link {
+        color: #636363;
+
+        &.active {
+          color: #c2c2c2;
+        }
+
+        &:hover {
+          color: #787878;
+        }
+      }
+    }
+    .popover {
+      background: $dark-mode__popover-bg;
+    }
+    .popover-link{
+      color: $dark-mode__popover-link;
+      &:hover {
+        color: $dark-mode__popover-link-hover
+      }
+    }
+    .popover-link:hover {
+      color: $dark-mode__popover-link-hover;
+      background: $dark-mode__popover-link-bg-hover;
+    }
+
+    .popover-link:hover,
+    .popover-item:first-child .popover-link:hover:after {
+      border-bottom-color: $dark-mode__popover-link-bg-hover;
     }
   }
 </style>
@@ -231,99 +265,60 @@ query {
 
 <script>
   export default {
-    // name: 'BlogNavBar',
+    name: 'BlogNavBar',
     props: {
       "stickyNavbar": {
         type: Boolean,
         default: undefined
       }
     },
-    // data() {
-    //   return {
-    //     sticky: this.stickyNavbar === undefined ? false : this.stickyNavbar
-    //   }
-    // },
-    mounte() {
-      // Variables
-      let $window = window
-      let $document = document
-      let $nav = $document.querySelector('.navbar')
-      let $blognav = $document.querySelector('#blog-nav')
-      let $popoverLink = $document.querySelectorAll('[data-popover]')
-      let navOffsetTop = $nav.offsetTop
-
-      function smoothScroll(e) {
-        e.preventDefault();
-        $document.onscroll = null;
-        let target = this.hash;
-        // let menu = target;
-        
-        window.location.hash = target;
-        $document.onscroll = onScroll;
-        
-        // $document.querySelector('html, body').forEach(elm => {
-        //   let $target = $document.querySelector(target);
-        //   elm.stop().animate({
-        //     'scrollTop': $target.offsetTop - 40
-        //   }, 0, 'swing', function () {
-        //     window.location.hash = target;
-        //     $document.onscroll = onScroll;
-        //   });
-        // });
+    watch: {
+      
+    },
+    data() {
+      return {
+        isSticky: this.stickyNavbar
       }
-
-      function openPopover(e) {
+    },
+    methods: {
+      openPopover(e) {
         e.preventDefault()
-        closePopover();
-        let popover = $document.querySelector(e.target.dataset.popover);
-        popover.classList.toggle('open')
+        this.closePopover();
+        let $popover = this.$el.querySelector(e.target.dataset.popover);
+        $popover.classList.toggle('open')
         e.stopImmediatePropagation();
-      }
-
-      function closePopover(e) {
-        let openPopovers = document.querySelectorAll('.popover.open')
+      },
+      closePopover(e) {
+        let openPopovers = this.$el.querySelectorAll('.popover.open')
         openPopovers.forEach(elm => {
-          // $document.querySelector('.popover').removeClass('open')
           elm.classList.remove('open')
         })
-      }
-
-      // $document.querySelector("#button").click(function() {
-      //   $document.querySelector('html, body').animate({
-      //     scrollTop: $document.querySelector("#elementtoScrollToID").offset().top
-      //   }, 2000);
-      // });
-
-      function resize() {
-        // $blognav.classList.remove('has-docked-nav')
+      },
+      resize() {
+        let $nav = this.$el.querySelector('.navbar')
+        let navOffsetTop = $nav.offsetTop
         this.stickyNavbar = false
         navOffsetTop = $nav.offsetTop
-        onScroll()
-      }
-
-      function onScroll() {
-        if(navOffsetTop <= $window.screenTop && !this.stickyNavbar
-          // && !$blognav.classList.contains('has-docked-nav')
-        ) {
-          // $blognav.classList.add('has-docked-nav')
-          this.stickyNavbar = true
+        this.onScroll()
+      },
+      onScroll() {
+        let $nav = this.$el.querySelector('.navbar')
+        if($nav.offsetTop <= window.scrollY && !this.stickyNavbar) {
+          this.isSticky = true
         }
-        if(navOffsetTop > $window.screenTop && this.stickyNavbar
-          // && $blognav.classList.contains('has-docked-nav')
-        ) {
-          // $blognav.classList.remove('has-docked-nav')
-          this.stickyNavbar = false
+        if($nav.offsetTop >= window.scrollY && !this.stickyNavbar) {
+          this.isSticky = false
         }
       }
-
-
-      $window.onscroll = onScroll
-      $window.onresize = resize
-      $popoverLink.onclick = openPopover
-      $document.onclick = closePopover
-      document.querySelectorAll("a[href^='#']").forEach(elm => {
-        elm.onclick = smoothScroll
-      })
+    },
+    mounted() {
+      let $popoverLink = this.$el.querySelector('[data-popover]')
+      window.onscroll = this.onScroll
+      window.onresize = this.resize
+      $popoverLink.onclick = this.openPopover
+      $popoverLink.onmouseover = this.openPopover
+      // $popoverLink.onmouseleave = this.closePopover
+      document.onclick = this.closePopover
     }
   }
 

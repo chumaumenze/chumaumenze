@@ -1,5 +1,7 @@
 <template lang="pug">
   blog-layout(v-bind:stickyNavbar="stickyNavbar")
+    p You are home!
+    hr
 </template>
 
 <style scoped>
