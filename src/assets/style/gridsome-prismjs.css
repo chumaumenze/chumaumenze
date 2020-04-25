@@ -3,6 +3,7 @@ code {
     margin: unset;
     border: unset;
     border-radius: unset;
+    background-color: unset;
 }
 
 pre > code {
@@ -17,8 +18,8 @@ pre > code {
 
 /*@import "../../../node_modules/prismjs/themes/prism-solarizedlight.css";*/
 /*@import "../../../node_modules/gridsome-plugin-remark-prismjs-all/themes/solarized.css";*/
-@import "../../../node_modules/gridsome-plugin-remark-prismjs-all/themes/tomorrow.css";
-/*@import "../../../node_modules/gridsome-plugin-remark-prismjs-all/themes/night-owl.css";*/
+/*@import "../../../node_modules/gridsome-plugin-remark-prismjs-all/themes/tomorrow.css";*/
+@import "../../../node_modules/gridsome-plugin-remark-prismjs-all/themes/night-owl.css";
 
 
 /**

@@ -8,6 +8,7 @@ import BlogLayout from "~/layouts/BlogLayout.vue";
 
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 export default function (Vue, { router, head, isClient }) {
+  Vue.config.productionTip = false;
   Vue.component('BlogLayout', BlogLayout)
   Vue.use(VueDisqus)
   Vue.prototype.$config = Config

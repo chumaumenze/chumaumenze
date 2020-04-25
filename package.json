@@ -1,10 +1,10 @@
 {
-  "name": "Zuko",
+  "name": "zuko",
   "version": "0.2.0",
   "private": true,
   "scripts": {
     "build": "gridsome build",
-    "develop": "gridsome develop",
+    "serve": "gridsome develop",
     "explore": "gridsome explore"
   },
   "dependencies": {

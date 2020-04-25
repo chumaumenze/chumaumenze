@@ -3,7 +3,7 @@
     slot(v-if="!isSticky")
       h1 {{$static.metadata.siteName}}
       p.subtitle {{$static.metadata.siteDescription}}
-    
+
     nav.navbar
       .container
         ul.navbar-list
@@ -12,18 +12,20 @@
           li.navbar-item
             g-link.navbar-link(to="/blog") Blog
           li.navbar-item
-            g-link.navbar-link(to="/projects") Projects
+            g-link.navbar-link(to="/connect") Connect
           li.navbar-item
-            g-link.navbar-link(to="/contact") Contact
-          li.navbar-item
-            a.navbar-link(href='#', data-popover='#subnav-1') Code
-            #subnav-1.popover
+            a.navbar-link(href='#', data-popover='#blog-nav-more') More
+            #blog-nav-more.popover
               ul.popover-list
                 li.popover-item
-                  g-link.popover-link(href='#grid') Validator
+                  g-link.popover-link(href='//gitlab.com') Code
                 li.popover-item
-                  g-link.popover-link(href='#typography') Morscribe
-  
+                  g-link.popover-link(href='//lens.chumaumenze.com') Photos
+                li.popover-item
+                  g-link.popover-link(href='/archive') Archive
+                li.popover-item
+                  g-link.popover-link(href='/tags') Tags
+
 </template>
 
 <style lang="scss">
@@ -75,7 +77,7 @@
     line-height: 6.5rem;
     color: $light-mode__nav-link;
   }
-  
+
   .navbar-link:hover {
     color: $light-mode__nav-link-hover;
   }
@@ -107,13 +109,11 @@
   .popover {
     display: none;
     position: absolute;
-    /*top: 0;*/
-    /*left: 0;*/
     background: $light-mode__popover-bg;
     border: 1px solid $light-mode__popover-border;
     border-radius: 4px;
-    top: 92%;
-    left: -50%;
+    top: 80%;
+    left: -33%;
     filter: drop-shadow(0 0 6px rgba(0, 0, 0, .1));
   }
 
@@ -255,12 +255,12 @@
 </style>
 
 <static-query>
-query {
+  query {
   metadata {
-    siteName,
-    siteDescription
+  siteName,
+  siteDescription
   }
-}
+  }
 </static-query>
 
 <script>
@@ -273,7 +273,7 @@ query {
       }
     },
     watch: {
-      
+
     },
     data() {
       return {
@@ -286,6 +286,7 @@ query {
         this.closePopover();
         let $popover = this.$el.querySelector(e.target.dataset.popover);
         $popover.classList.toggle('open')
+        $popover.onmouseleave = this.closePopover
         e.stopImmediatePropagation();
       },
       closePopover(e) {
@@ -312,12 +313,12 @@ query {
       }
     },
     mounted() {
-      let $popoverLink = this.$el.querySelector('[data-popover]')
+      this.$el.querySelectorAll('[data-popover]').forEach(elm => {
+        elm.onclick = this.openPopover;
+        elm.onmouseover = this.openPopover;
+      })
       window.onscroll = this.onScroll
       window.onresize = this.resize
-      $popoverLink.onclick = this.openPopover
-      $popoverLink.onmouseover = this.openPopover
-      // $popoverLink.onmouseleave = this.closePopover
       document.onclick = this.closePopover
     }
   }

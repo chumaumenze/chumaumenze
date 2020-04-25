@@ -16,7 +16,8 @@
     // Comment widgets
     .post-comments
       div#graphcomment(v-if="$config.commentType ==='graphcomment'" data-gc_type="universal")
-      vue-disqus(v-else :shortname="$config.disqus.shortname" :identifier="$page.post.title" :url="$config.disqus.url")
+      vue-disqus(v-else :shortname="$config.webTags.disqus.shortname" 
+        :identifier="$page.post.title" :url="$config.webTags.disqus.url")
     hr
 
 </template>
