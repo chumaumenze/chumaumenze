@@ -1,0 +1,42 @@
+@import "variables";
+
+// GraphComment
+/*.gc-theme-dark .gc-node, */
+/*.gc-theme-dark .gc-node .comment-answer, */
+/*.gc-theme-dark .gc-slider, */
+/*.gc-theme-dark .gc-embed-og {*/
+/*   border-color: #ffffff; */
+/*}*/
+
+//.gc-node, .gc-node input,
+//.gc-node textarea,
+//.gc-node [contenteditable=true] {
+//    background-color: unset;
+//}
+
+body {
+  background-color: $dark-mode__bg;
+  color: $dark-mode__color;
+}
+
+a {
+  color: #636363;
+
+  &:hover {
+    color: $dark-mode__nav-link-hover;
+  }
+}
+h1, h2, h3, h4, h5, h6 {
+  color: $dark-mode__white;
+
+  a {
+    color: $dark-mode__white;
+
+    &:hover {
+      color: $dark-mode__headings-link-hover;
+    }
+  }
+}
+
+
+

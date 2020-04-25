@@ -1,7 +1,7 @@
 <template lang="pug">
-  section
-    h2
-      g-link(:to="post.path") {{post.title}}
+  section#blog-post-card.post-card
+    h2.post-title-text
+      g-link.post-link(:to="post.path") {{post.title}}
     post-meta(:post="post")
         
     p(v-html="post.description")
@@ -11,15 +11,31 @@
 <script>
 import PostMeta from "~/components/PostMeta.vue";
 export default {
-  name: "PostCard",
+  name: "BlogPostCard",
   props: ['post'],
-  components: {PostMeta},
-  mounted() {
-    console.log(this.post)
-  }
+  components: {PostMeta}
 }
 </script>
 
 <style lang="scss">
+@import "~/assets/style/variables";
 
+.post-link {
+  text-decoration: none;
+  color: $light-mode__headings-link;
+  
+  &:hover {
+    color: $light-mode__headings-link-hover;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .post-link {
+    color: $dark-mode__headings-link;
+
+    &:hover {
+      color: $dark-mode__headings-link-hover;
+    }
+  }
+}
 </style>

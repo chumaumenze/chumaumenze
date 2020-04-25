@@ -1,28 +1,44 @@
 <template lang="pug">
   blog-layout(stickyNavbar)
     div#blog-post
+      // Post title
       .post-title-box(:id="`post-${$page.post.id}`")
         h1.post-title-text
           | {{ $page.post.title }}
         p.subtitle {{ $page.post.description }}
         post-meta(:post="this.$page.post")
       hr
-      .post-content-box.center
-        g-image(alt='Cover image', v-if='$page.post.cover_image', :src='$page.post.cover_image')
+      // Post Content
+      .post-content-box
+        g-image.u-max-full-width(alt='Cover image', v-if='$page.post.cover_image', :src='$page.post.cover_image')
         .post-content(v-html='$page.post.content')
-    
-      // Add comment widgets here
+    hr
+    // Comment widgets
+    .post-comments
+      div#graphcomment(v-if="$config.commentType ==='graphcomment'" data-gc_type="universal")
+      vue-disqus(v-else :shortname="$config.disqus.shortname" :identifier="$page.post.title" :url="$config.disqus.url")
     hr
 
 </template>
 
-<style lang="css" scoped>
-#blog-post {
-  /*margin-top: 6em;*/
-}
-.post-content-box {
-  margin-top: 3em;
-}
+<style lang="scss">
+  @import "~/assets/style/variables";
+
+  #blog-post {
+    margin-top: 67px;
+    
+    .post-content {
+      img,
+      .g-image {
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        margin-top: 1.7em;
+      }
+    }
+  }
 </style>
 
 <script>

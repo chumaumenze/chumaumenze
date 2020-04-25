@@ -1,0 +1,36 @@
+$light-mode__bg: #fafafa;
+$light-mode__color: #222222;
+
+$light-mode__nav-link: #222222;
+$light-mode__nav-link-hover: #636363;
+
+$light-mode__popover-bg: $light-mode__bg;
+$light-mode__popover-link: $light-mode__color;
+$light-mode__popover-border: #eee;
+$light-mode__popover-link-hover: #ffffff;
+$light-mode__popover-link-bg-hover: #33C3F0;
+
+$light-mode__navbar-border-top: #eee;
+$light-mode__navbar-border-bottom: #eee;
+$light-mode__headings-link: $light-mode__color;
+$light-mode__headings-link-hover: #636363;
+
+
+$dark-mode__bg: rgba(17, 18, 22, 1);
+$dark-mode__color: #93a0c5;
+//$dark-mode__white: #e2e8f0;
+$dark-mode__white: #c2c2c2;
+
+$dark-mode__nav-link: #636363;
+$dark-mode__nav-link-active: #c2c2c2;
+$dark-mode__nav-link-hover: #787878;
+
+$dark-mode__popover-bg: $dark-mode__bg;
+$dark-mode__popover-link: $dark-mode__color;
+$dark-mode__popover-border: #eee;
+$dark-mode__popover-link-hover: #ffffff;
+$dark-mode__popover-link-bg-hover: #a8a8a8;
+
+
+$dark-mode__headings-link: $dark-mode__white;
+$dark-mode__headings-link-hover: #a8a8a8;

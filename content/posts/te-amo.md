@@ -82,6 +82,8 @@ Result:
 You can also start numbering at any index you wish (here, numbering
 will start at index 21):
 
+![Ahoy!](./images/alexandr-podvalny-220262-unsplash.jpg)
+
 `````md
 ```html{numberLines: 21}
 <template>
