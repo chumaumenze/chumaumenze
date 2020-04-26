@@ -25,6 +25,8 @@
                   g-link.popover-link(href='/archive') Archive
                 li.popover-item
                   g-link.popover-link(href='/tags') Tags
+                //li.popover-item
+                  g-link.popover-link(href='/ideas') Ideas
 
 </template>
 
@@ -272,9 +274,6 @@
         default: undefined
       }
     },
-    watch: {
-
-    },
     data() {
       return {
         isSticky: this.stickyNavbar
@@ -298,17 +297,19 @@
       resize() {
         let $nav = this.$el.querySelector('.navbar')
         let navOffsetTop = $nav.offsetTop
-        this.stickyNavbar = false
+        this.isSticky = this.stickyNavbar
         navOffsetTop = $nav.offsetTop
         this.onScroll()
       },
       onScroll() {
-        let $nav = this.$el.querySelector('.navbar')
-        if($nav.offsetTop <= window.scrollY && !this.stickyNavbar) {
-          this.isSticky = true
-        }
-        if($nav.offsetTop >= window.scrollY && !this.stickyNavbar) {
-          this.isSticky = false
+        if (!this.stickyNavbar) {
+          let $nav = this.$el.querySelector('.navbar')
+          if($nav.offsetTop <= window.scrollY && !this.stickyNavbar) {
+            this.isSticky = true
+          }
+          if($nav.offsetTop >= window.scrollY && !this.stickyNavbar) {
+            this.isSticky = false
+          }
         }
       }
     },
