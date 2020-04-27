@@ -26,7 +26,7 @@
   @import "~/assets/style/variables";
 
   #blog-post {
-    margin-top: 67px;
+    margin-top: 6.5em;
     
     .post-content {
       img,

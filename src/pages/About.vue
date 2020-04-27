@@ -1,24 +1,77 @@
 <template lang="pug">
   blog-layout(v-bind:stickyNavbar="stickyNavbar")
-    div
-      p Something about me... A self-taught code junkie. Welcome to my blog.
-      div
-        svg(xmlns='http://www.w3.org/2000/svg', width='130', height='28')
-          path(fill='#000', fill-rule='nonzero', d='M8.9 4H9c.1 0 .2.1.2.3l.3-.2c.6 0 1.4.4 2.4 1.1 1.6.1 2.5.5 2.5 1a4 4 0 0 1-1.9 1.2l-.1-.2c-.2 0-.2 0-.2.2l-.8-.2c-.8 0-1.7 1.2-2.9 3.7L6.2 15l.1.4.4-.2H7c.4 0 1 0 1.5.2l.4-.2c.4.2.6.3.6.5v.3c0 .8-1.6 1.4-4.8 2l-.2.4a11 11 0 0 0-1.3 3.8v.6c.1 1.2.5 1.9 1.1 1.9h.2l4-.5c1 .1 1.5.4 1.5.6 0 .6-1.5 1.2-4.5 1.8h-.8C2.6 26.6 1 25.4 0 23c0-1.7.7-3.7 2.2-6.1v-.2l2.3-4.5 3.7-6.8c0-.9.2-1.3.7-1.3zm8.5 17h.6c1.5.2 2.4.4 2.5.8 0 .5-1.6 1.2-4.9 1.9l-.2.2c-.6.5-1.6 1.4-2.8 2.7h-.8c-.5-.4-.8-.8-.8-1.3h.2L11 25c0-.7 1.3-1.9 3.9-3.7l.6-.1v.1l1.9-.2zm5-1.2h.4c.8.4 1.2 1 1.2 1.8l-.2.4c0 .5-.2.8-.2.9 2.5-1.6 4.6-2.5 6.3-2.5 1.2.9 1.8 1.7 1.8 2.3 0 .8-.2 1.6-.5 2.3l.2.7c0 .1-.3.4-.7.6h-.1c-.9 0-1.4-.6-1.7-1.8v-1.1h-.2c-2.2 1-4.3 2-6 3.2h-.2c-1 0-1.8-.7-2.3-2l.2-.6c.8-2.2 1.5-3.7 2-4.2zm14.4.1c1.9 0 2.9.7 2.9 2.2 0 .6-.8 1.4-2.2 2.4 1 0 1.6.2 1.6.6-.1.5-.8 1-2 1.5h-1C34 26 33 24.8 33 23.2v-.8c.3-.9 1.3-1.6 3-2.3l.9-.2zm11.8-.9l.4.4v.7l-.8.6C46.8 21.5 46 22 46 22v.2c0 .5.2.9.6 1.2v.6c0 1.2-1.3 2-4 2.5-.5 0-1.8-.3-3.8-1V25c0-.2 1-.4 3.3-.7.8-.3 1.2-.6 1.2-.9-.6-.8-.8-1.4-.8-1.8a7.5 7.5 0 0 1 6-2.7zM65 0c.4.1.6.3.6.7 0 .4-1 1.7-2.9 4 0 .3-.5 1.1-1.6 2.6l-.3.3c-1.6 2.2-2.8 4.1-3.5 5.6v.5h.8l.7-.1.2.1.8-.1h.9l.5.1.8-.1c3 0 5.9-.1 8.8-.4v.2l.3-.2h1.5l.7-.1.2.1h1.1l2.1-.3.7.2h.5c.3 0 .5 0 .7-.2l.3.2 1.4-.4.4.2.3-.2.3.2 1.2-.2c.1 0 .2 0 .2.2 1-.2 2.4-.4 4.1-.4l.2.2.3-.2h1.2l1.7-.1 1.6.1.6-.1.4.1 3-.3v.2l.4-.2h1.2c.4 0 .7 0 .8.2l2.8-.4.3.2.4-.2.1.2c1.3-.2 2.8-.3 4.5-.3v.1l.3-.1h2l.7.1.7-.1h.5l.2.1c.4-.2 1-.3 1.5-.3l.4.2.5-.2c.1 0 .2 0 .2.2l.8-.2h.5c.7 0 1 0 1 .2l1.8-.2h8.7c.2 0 .5 0 .7.2.4-.3.8-.4 1-.4 0 .3.1.4.3.4l.9-.2v.2l.3-.2.7.2c0 .3-.6.5-1.9.5H127l-1.5.5v-.2l-.4.2-.5-.4-.3.2-.3-.2h-.2v.2h.3l-.1.4-.9-.4-.8.4-.4-.2h-.7c-1.3.3-2.3.3-2.9.3l-.1-.3h.3v-.4h-.2l-.3.2c0-.1 0-.2-.2-.2v.2l.2.4-.4.1h-.1c0-.4-.3-.7-.7-.7v.2l.2.5h-1.6l-.3-.1c0 .2-.1.3-.4.3h-.5c-.1 0-.2 0-.2-.2l-.3.2h-.5c-.1 0-.2 0-.2-.2l-.3.2h-1.2c-.1 0-.2 0-.2-.2l-1.3.4-.7-.2-.7.2v-.2l-.4.2H106l-.6.1h-.3l-.6-.3c-.2.2-1.2.4-3 .5v-.2l-1 .2h-2c-.2 0-.3.2-.3.3l-.4-.1h-2.2c-.2 0-.5 0-.7.2-.2-.2-.4-.2-.6-.2H94c-.1 0-.6 0-1.4.3l-.2-.3a8 8 0 0 1-1.8.3 11 11 0 0 0-2-.2l-.3.4-.6-.3c0 .2-.2.3-.4.3l-.1-.2a4 4 0 0 1-1.2.4c0-.4-.2-.6-.6-.6 0 .3 0 .4-.3.4l-.7-.2.2.4v.1H84c0-.3-.2-.5-.5-.5v.5h-1l-.2-.1-.7.3-.4-.2-.6.2v-.3h-.2l-.5.3-.5-.3c0 .2-.2.3-.6.3h-.1c-.3 0-1 0-1.9-.2v.2l-.3-.2h-.4c-.2 0-.3.2-.3.4a4 4 0 0 0-1.6-.4l.2.4-.2.1c-.7 0-1.2-.2-1.5-.3 0 .2-.7.4-2.2.5 0-.2-.1-.3-.3-.3 0 .2-.2.3-.4.3h-.2l-.1-.2c0 .2-4.2.5-12.5.7l-.3.2-.7-.2c-.8.3-2.1 3-4 8.2v.4c-.4 2-.9 3-1.3 3 0 .2-.1.3-.4.3h-.3c-.2 0-.5-.5-.9-1.5.2-2.2 1.5-5.7 4-10.4h-4.6l-.2-.1-.3.1h-1.6c-.7 0-1.5.1-2.4.4v-.2l-.3.2h-2l-.7-.2-.6.2v-.2l.2-.3H40v.3h-4.5V16l.2-.3h-.3c-.3 0-.5 0-.7.2-1.4-.7-2-1.5-2-2.4 0-.3.3-.4 1.1-.5l1.9.5.3-.2h.5l2 .2.3.1.3-.1.2.1.3-.1H41l1.5.1.4-.1.3.1.2-.1.8.1h9.6s.2 0 .2.2c.4-.1 2-2.4 4.7-7l1-1.3C62.2 2.3 63.7.4 64.3.2L65 0z')
-
+    div#blog-about
+      h1 Hi, I'm Zuko...
+      .row.profile
+        .four.columns
+          div
+            //img.image(src="../assets/images/profile.png")
+            img.image(src="../assets/images/goofy.jpeg")
+            h5 Chuma Zuko Umenze
+            a(:href="`mailto:${this.$config.email}`") {{this.$config.email}}
+            social-link 
+        .eight.columns
+          p I am a multidisciplinary developer based in Lagos, Nigeria. I 
+            | currently work remotely as a software engineer with the amazing and
+            | talented people at 
+            a(href="//britecore.com") Britecore
+            | , revolutionizing the insurance industry.
+          p I am self-taught. I became very passionate about computers and software 
+            | in my sophomore year and was interested in learning how it worked. 
+            | So, I shifted my focus from my current major (political science) to 
+            | explore this new passion. The decision was not difficult but 
+            | critical. On finishing a computer networking course (CCNA), I curated
+            | a list of online courses to teach myself computer science and 
+            | programming.
+          p My career in the industry kicked off in 2015. With the knowledge I had 
+            | acquired, I began developing web apps and software for businesses and
+            | organizations in my locale. With assistance from friends, I founded 
+            | CodeBloks to help startup founders and businesses achieve their 
+            | software development goals. Other experiences in the industry cut 
+            | across working with small to large companies on a full-time/contract 
+            | basis. I have worked with TechAdvance and her subsidiary – GPay, and 
+            | currently in a contract with BriteCore.
+          p Outside professional engagements, I am a member of Python Software 
+            | Foundation & Python Nigeria. I volunteer for the Nigerian Red Cross 
+            | and Be My Eyes.
+          p In my spare time, I love to play tennis, video games and shoot some 
+            | photos. I also enjoy reading and seeing movies – history/non-fiction are my 
+            | favourites.
+          p Want to know more about me? Let's 
+            g-link(to="/connect") chat.
     hr
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+  @import "~/assets/style/variables";
 
+  #blog-about {
+    margin-top: 6.5em;
+  }
+  .profile {
+    h5 {
+      margin-top: 2rem;
+      margin-bottom: 0;
+    }
+    .image {
+      width: 80%;
+      margin: 0;
+      transition: ease all .3s;
+      opacity: 1;
+      border-radius: 0.5em;
+      box-shadow: 8px 8px #dce6ea, 0 4px 8px rgba(17,35,56,.04), 0 0 8px rgba(17,35,56,.04), 0 18px 27px rgba(17,35,56,.11);
+    }
+  }
 </style>
 
 <script>
+  import SocialLink from "../components/SocialLink";
   export default {
     name: 'About',
+    components: {SocialLink},
     data() {
       return {
-        stickyNavbar: false
+        stickyNavbar: true
       }
     }
   }

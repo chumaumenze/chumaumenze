@@ -1,11 +1,102 @@
 <template lang="pug">
   blog-layout(v-bind:stickyNavbar="stickyNavbar")
-    p You are home!
+    #blog-home
+      section
+        .row
+          .ten.columns
+            h2 
+              | I'm a terminal friendly, afrontend-type 
+              | backend programmer based in Lagos.
+            p Previously working as a Software Engineer at 
+              a(href="//britecore.com") BriteCore
+            
+            p
+              span.note Currently open to job opportunities.
+        hr
+        section
+          h4 Featured Projects
+          div.featured-projects
+            .row
+              .six.columns.project
+                .row
+                  .three.columns.image
+                    a(href="#")
+                      img.svg-bg(src="../assets/images/validator.svg")
+                  .nine.columns.description
+                    h5
+                      a(href="#") Flask Validator
+                    p Project Flask Validator. 
+                      | Labtuit works with active candidates to help them land their dream job.
+              .six.columns.project
+                .row
+                  .three.columns.image
+                    a(href="#")
+                      img.svg-bg(src="../assets/images/telegraph.svg")
+                  .nine.columns.description
+                    h5
+                      a(href="#") Morscribe
+                    p Morscribe description. 
+                      | Labtuit works with active candidates to help them land their dream job.
     hr
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+  @import "~/assets/style/variables";
+  
+  #blog-home {
+    margin-top: 6.5em;
+  }
+  .note {
+    background: #fffaf0;
+    border: 1px solid #ed8937;
+    color: #ed8937;
+    border-radius: 4px;
+    padding: 6px 16px;
+    margin-top: 8px;
+  }
+  .svg-bg {
+    background-color: lightgrey;
+    border-radius: 20%;
+  }
 
+  @media (min-width: 400px) and (max-width: 550px){
+    .featured-projects {
+      & .project {
+        width: 100%;
+        margin-left: 0;
+      }
+      & .image {
+        max-width: 20%;
+        margin-right: 1em;
+      }
+      & .description {
+        max-width: 60%;
+        
+        h5 {
+          font-size: 2rem;
+          margin-bottom: 0.5em;
+        }
+        
+        p {
+          
+        }
+      }
+    }
+  }
+  @media (min-width: 750px) {
+    .featured-projects {
+      & .description {
+        h5 {
+          font-size: 2rem;
+          margin-bottom: 0.5em;
+        }
+
+        p {
+
+        }
+      }
+    }
+  }
 </style>
 
 <script>
@@ -13,7 +104,7 @@ export default {
   name: 'Home',
   data() {
     return {
-      stickyNavbar: false
+      stickyNavbar: true
     }
   }
 }

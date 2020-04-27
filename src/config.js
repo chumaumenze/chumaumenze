@@ -1,5 +1,20 @@
 export default {
   name: "Chuma Umenze",
+  email: "chumaumenze@gmail.com",
+  socials: [
+    {
+      name: "twitter",
+      url: "https://twitter.com/chumaumenze"
+    },
+    {
+      name: "medium",
+      url: "https://medium.com/@chumaumenze"
+    },
+    {
+      name: "spotify",
+      url: "https://open.spotify.com/user/befjaofs7n7aa28s0x60cl1gk"
+    }
+  ],
   commentType: "disqus", // disqus or graphcomment
   webTags: {
     disqus: {
@@ -16,6 +31,10 @@ export default {
     },
     gtm: {
       id: "GTM-W96PS6N"
+    },
+    hCaptcha: {
+      siteKey: "b920a19d-8628-4a97-842b-97d48432de52",
+      callbackName: "verifyHCaptcha"
     }
   }
   
