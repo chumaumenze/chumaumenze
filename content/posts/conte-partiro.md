@@ -2,7 +2,7 @@
 title: Conte Partiro
 date: 2020-01-22
 published: true
-tags: Gridsome, Tutorial
+tags: [Gridsome, Tutorial]
 series: false
 canonical_url: false
 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
