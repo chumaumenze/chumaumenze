@@ -1,10 +1,11 @@
 <template lang="pug">
-  footer#blog-footer
+  footer#blog-footer(v-bind:class ="{'has-docked-footer':stickyFooter}")
     // Footer
-    span.u-pull-left {{`&#169; ${currentYear} `}}
-      g-link(to="/") {{$static.metadata.siteName}}
-    span.u-pull-right Powered by 
-      a(href="//gridsome.org") Gridsome
+    .container
+      span.u-pull-left {{`&#169; ${currentYear} `}}
+        g-link(to="/") {{$static.metadata.siteName}}
+      span.u-pull-right Powered by 
+        a(href="//gridsome.org") Gridsome
 </template>
 
 <static-query>
@@ -18,6 +19,12 @@
 <script>
   export default {
     name: "BlogFooter",
+    props: {
+      "stickyFooter": {
+        type: Boolean,
+        default: undefined
+      }
+    },
     data() {
       return {
         currentYear: new Date().getFullYear()
@@ -25,3 +32,27 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+  @import "~/assets/style/variables";
+  
+  .has-docked-footer {
+    background-color: $light-mode__bg;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    /*height: 5rem;*/
+    padding: 2.5rem 0;
+    z-index: 99;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .has-docked-footer {
+      background-color: $dark-mode__bg;
+    }
+  }
+</style>

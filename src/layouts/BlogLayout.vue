@@ -2,7 +2,7 @@
   div#blog-layout.container
     blog-nav-bar(v-bind:stickyNavbar="stickyNavbar")
     slot
-    blog-footer
+    blog-footer(v-bind:stickyFooter="stickyNavbar")
 
 </template>
 

@@ -39,7 +39,6 @@
             | favourites.
           p Want to know more about me? Let's 
             g-link(to="/connect") chat.
-    hr
 </template>
 
 <style lang="scss" scoped>

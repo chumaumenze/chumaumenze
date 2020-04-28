@@ -1,25 +1,24 @@
 <template lang="pug">
   blog-layout(stickyNavbar)
     #blog-post.page-mt
-      // Post title
-      .post-title-box(:id="`post-${$page.post.id}`")
-        h1.post-title-text
-          | {{ $page.post.title }}
-        p.subtitle {{ $page.post.description }}
-        post-meta(:post="this.$page.post")
+      div
+        // Post title
+        .post-title-box(:id="`post-${$page.post.id}`")
+          h1.post-title-text
+            | {{ $page.post.title }}
+          p.subtitle {{ $page.post.description }}
+          post-meta(:post="this.$page.post")
+        hr
+        // Post Content
+        .post-content-box
+          g-image.u-max-full-width(alt='Cover image', v-if='$page.post.cover_image', :src='$page.post.cover_image')
+          .post-content(v-html='$page.post.content')
       hr
-      // Post Content
-      .post-content-box
-        g-image.u-max-full-width(alt='Cover image', v-if='$page.post.cover_image', :src='$page.post.cover_image')
-        .post-content(v-html='$page.post.content')
-    hr
-    // Comment widgets
-    .post-comments
-      div#graphcomment(v-if="$config.commentType ==='graphcomment'" data-gc_type="universal")
-      vue-disqus(v-else :shortname="$config.webTags.disqus.shortname" 
-        :identifier="$page.post.title" :url="$config.webTags.disqus.url")
-    hr
-
+      // Comment widgets
+      .post-comments
+        div#graphcomment(v-if="$config.commentType ==='graphcomment'" data-gc_type="universal")
+        vue-disqus(v-else :shortname="$config.webTags.disqus.shortname" 
+          :identifier="$page.post.title" :url="$config.webTags.disqus.url")
 </template>
 
 <style lang="scss">

@@ -1,6 +1,6 @@
 <template lang="pug">
-  blog-layout(v-bind:stickyNavbar="stickyNavbar")
-    div#blog-tags(v-bind:class="{'page-mt':stickyNavbar}")
+  blog-layout(stickyNavbar)
+    div#blog-tags.page-mt
       h1 # {{ $page.tag.title }}
       hr
       div
@@ -8,7 +8,6 @@
         blog-infinite-loader(:current-page="$page.tag.belongsTo.pageInfo.currentPage"
           :total-pages="$page.tag.belongsTo.pageInfo.totalPages"
           @infinite-loaded="loadData")
-    hr
 </template>
 
 <page-query>
@@ -60,8 +59,7 @@ export default {
   metaInfo: {},
   data() {
     return {
-      tagPosts: [],
-      stickyNavbar: true
+      tagPosts: []
     }
   },
   methods: {
@@ -73,6 +71,9 @@ export default {
     $route() {
       this.tagPosts = this.$page.tag.belongsTo.edges
     }
+  },
+  created() {
+    this.tagPosts.push(...this.$page.tag.belongsTo.edges)
   }
 }
 </script>

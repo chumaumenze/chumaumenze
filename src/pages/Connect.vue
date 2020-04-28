@@ -1,6 +1,6 @@
 <template lang="pug">
-  blog-layout(v-bind:stickyNavbar="stickyNavbar")
-    #blog-connect(v-bind:class="{'page-mt':stickyNavbar}")
+  blog-layout(stickyNavbar)
+    #blog-connect.page-mt
       h1 Drop a line...
       p.subtitle Write me a message or connect with me on the social platforms.
       .row
@@ -28,8 +28,6 @@
         .four.columns
           a(:href="`mailto:${this.$config.email}`") {{this.$config.email}}
           social-link
-    hr
-
 </template>
 
 <style scoped>
@@ -43,11 +41,6 @@
   import SocialLink from "../components/SocialLink";
   export default {
     name: 'Contact',
-    components: {SocialLink},
-    data() {
-      return {
-        stickyNavbar: true
-      }
-    }
+    components: {SocialLink}
   }
 </script>

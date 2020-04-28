@@ -37,7 +37,6 @@
                       a(href="#") Morscribe
                     p Morscribe description. 
                       | Labtuit works with active candidates to help them land their dream job.
-    hr
 </template>
 
 <style lang="scss" scoped>

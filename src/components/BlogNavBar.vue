@@ -3,7 +3,6 @@
     slot(v-if="!isSticky")
       h1 
         g-link(to="/") {{$static.metadata.siteName}}
-      p.subtitle {{$static.metadata.siteDescription}}
 
     nav.navbar
       .container
@@ -21,13 +20,13 @@
             #blog-nav-more.popover
               ul.popover-list
                 li.popover-item
-                  g-link.popover-link(href='//gitlab.com') Code
+                  a.popover-link(href='https://gitlab.com') Code
                 li.popover-item
-                  g-link.popover-link(href='//lens.chumaumenze.com') Photos
+                  a.popover-link(href='https://lens.chumaumenze.com') Photos
                 li.popover-item
-                  g-link.popover-link(href='/archive') Archive
+                  g-link.popover-link(to='/archive') Archive
                 li.popover-item
-                  g-link.popover-link(href='/tags') Tags
+                  g-link.popover-link(to='/tags') Tags
                 //li.popover-item
                   g-link.popover-link(href='/ideas') Ideas
 
