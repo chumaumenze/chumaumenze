@@ -1,6 +1,6 @@
 <template lang="pug">
   blog-layout(v-bind:stickyNavbar="stickyNavbar")
-    #blog-connect
+    #blog-connect(v-bind:class="{'page-mt':stickyNavbar}")
       h1 Drop a line...
       p.subtitle Write me a message or connect with me on the social platforms.
       .row
@@ -33,10 +33,6 @@
 </template>
 
 <style scoped>
-  #blog-connect {
-    margin-top: 6.5em;
-  }
-  
   #blog-connect-form-honeypot {
     display: none;
   }

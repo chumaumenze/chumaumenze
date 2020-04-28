@@ -10,7 +10,7 @@
   "dependencies": {
     "@gridsome/plugin-google-analytics": "^0.1.0",
     "@gridsome/remark-prismjs": "^0.3.0",
-    "@gridsome/source-filesystem": "^0.6.0",
+    "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.3.0",
     "gridsome": "^0.7.0",
     "gridsome-plugin-netlify-cms": "^1.0.9",
@@ -18,7 +18,8 @@
     "netlify-cms": "^2.10.45",
     "prismjs": "^1.20.0",
     "skeleton-css": "^2.0.4",
-    "vue-disqus": "^3.0.5"
+    "vue-disqus": "^3.0.5",
+    "vue-infinite-loading": "^2.4.5"
   },
   "devDependencies": {
     "gridsome-plugin-pug": "^0.0.3",

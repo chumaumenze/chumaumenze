@@ -1,6 +1,6 @@
 <template lang="pug">
   blog-layout(v-bind:stickyNavbar="stickyNavbar")
-    div#blog-about
+    #blog-about(v-bind:class="{'page-mt':stickyNavbar}")
       h1 Hi, I'm Zuko...
       .row.profile
         .four.columns
@@ -45,9 +45,6 @@
 <style lang="scss" scoped>
   @import "~/assets/style/variables";
 
-  #blog-about {
-    margin-top: 6.5em;
-  }
   .profile {
     h5 {
       margin-top: 2rem;

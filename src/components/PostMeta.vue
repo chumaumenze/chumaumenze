@@ -17,7 +17,7 @@
 			},
 			postTags() {
 				let tags = []
-				this.post.tags.forEach(tag => {
+        this.post.tags && this.post.tags.forEach(tag => {
 					let tagLink = `<a href="${this.$url(tag.path)}">${tag.title}</a>`
 					tags.push(tagLink)
 				})

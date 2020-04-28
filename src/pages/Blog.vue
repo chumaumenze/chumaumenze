@@ -2,7 +2,11 @@
   blog-layout(v-bind:stickyNavbar="stickyNavbar")
     div#blog-post-list
       // List posts
-      post-card(v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node")
+      post-card(v-for="post in pagePosts" :key="post.node.id" :post="post.node")
+      blog-infinite-loader(:current-page="$page.posts.pageInfo.currentPage" 
+        :total-pages="$page.posts.pageInfo.totalPages" 
+        @infinite-loaded="loadData")
+    hr
 </template>
 
 <style scoped>
@@ -10,8 +14,12 @@
 </style>
 
 <page-query>
-query {
-  posts: allPost(filter: { published: { eq: true }}) {
+query ($page: Int = 1) {
+  posts: allPost(filter: { published: { eq: true }} perPage: 5, page: $page) @paginate {
+    pageInfo {
+      totalPages
+      currentPage
+    }
     edges {
       node {
         id
@@ -34,16 +42,27 @@ query {
 
 <script>
 import PostCard from '~/components/PostCard.vue'
+import BlogInfiniteLoader from "../components/BlogInfiniteLoader";
 
 export default {
   name: 'Blog',
   components: {
+    BlogInfiniteLoader,
     PostCard,
   },
   data() {
     return {
+      pagePosts: [],
       stickyNavbar: false
     }
+  },
+  methods: {
+    loadData(newPosts) {
+      this.pagePosts.push(...newPosts)
+    }
+  },
+  created() {
+    this.pagePosts.push(...this.$page.posts.edges)
   }
 }
 </script>

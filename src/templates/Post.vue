@@ -1,6 +1,6 @@
 <template lang="pug">
   blog-layout(stickyNavbar)
-    div#blog-post
+    #blog-post(v-bind:class="{'page-mt':stickyNavbar}")
       // Post title
       .post-title-box(:id="`post-${$page.post.id}`")
         h1.post-title-text
@@ -26,7 +26,6 @@
   @import "~/assets/style/variables";
 
   #blog-post {
-    margin-top: 6.5em;
     
     .post-content {
       img,

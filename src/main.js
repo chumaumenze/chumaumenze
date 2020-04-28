@@ -1,5 +1,7 @@
 // Import default layout so we don't need to import it to every page
 import VueDisqus from "vue-disqus";
+import InfiniteLoading from 'vue-infinite-loading'
+
 import Config from "./config";
 
 
@@ -11,10 +13,6 @@ export default function (Vue, { router, head, isClient }) {
   Vue.config.productionTip = false;
   Vue.component('BlogLayout', BlogLayout)
   Vue.use(VueDisqus)
+  Vue.use(InfiniteLoading)
   Vue.prototype.$config = Config
-  
-  router.addRoutes([
-    {path: '/', component: Home},
-    // {path: '/', redirect: '/blog'}
-  ])
 }

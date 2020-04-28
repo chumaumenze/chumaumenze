@@ -1,6 +1,6 @@
 <template lang="pug">
   blog-layout(v-bind:stickyNavbar="stickyNavbar")
-    #blog-home
+    #blog-home(v-bind:class="{'page-mt':stickyNavbar}")
       section
         .row
           .ten.columns
@@ -43,9 +43,6 @@
 <style lang="scss" scoped>
   @import "~/assets/style/variables";
   
-  #blog-home {
-    margin-top: 6.5em;
-  }
   .note {
     background: #fffaf0;
     border: 1px solid #ed8937;
@@ -101,7 +98,7 @@
 
 <script>
 export default {
-  name: 'Home',
+  name: 'BlogHome',
   data() {
     return {
       stickyNavbar: true

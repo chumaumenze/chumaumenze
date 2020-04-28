@@ -1,12 +1,15 @@
 <template lang="pug">
   header#blog-nav(v-bind:class ="{'has-docked-nav':isSticky}")
     slot(v-if="!isSticky")
-      h1 {{$static.metadata.siteName}}
+      h1 
+        g-link(to="/") {{$static.metadata.siteName}}
       p.subtitle {{$static.metadata.siteDescription}}
 
     nav.navbar
       .container
         ul.navbar-list
+          li.navbar-item(v-if="isSticky")
+            g-link.navbar-link(to="/" exact) Zuko
           li.navbar-item
             g-link.navbar-link(to="/about") About
           li.navbar-item

@@ -9,7 +9,7 @@ module.exports = {
   siteDescription: 'A self-taught code junkie. Welcome to my blog.',
 
   templates: {
-    Post: '/blog/:title',
+    Post: '/blog/:year/:month/:day/:title',
     Tag: '/tags/:id'
   },
 
