@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     loadData(newPosts) {
-      this.pagePosts.push(...newPosts)
+      this.pagePosts.push(...newPosts.posts.edges)
     }
   },
   created() {

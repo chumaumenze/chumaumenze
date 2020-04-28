@@ -1,26 +1,44 @@
 <template lang="pug">
-  blog-layout(stickyNavbar)
-    div#blog-tags
+  blog-layout(v-bind:stickyNavbar="stickyNavbar")
+    div#blog-tags(v-bind:class="{'page-mt':stickyNavbar}")
       h1 # {{ $page.tag.title }}
       hr
-      post-card(v-for='edge in $page.tag.belongsTo.edges', :key='edge.node.id', :post='edge.node')
-
+      div
+        post-card(v-for="post in tagPosts" :key="post.node.id" :post="post.node")
+        blog-infinite-loader(:current-page="$page.tag.belongsTo.pageInfo.currentPage"
+          :total-pages="$page.tag.belongsTo.pageInfo.totalPages"
+          @infinite-loaded="loadData")
+    hr
 </template>
 
 <page-query>
-query Tag ($id: ID!) {
-  tag (id: $id) {
+query ($id: ID!, $page: Int = 1) {
+  tag(id: $id) {
     title
-    belongsTo {
+    belongsTo(perPage: 5, page: $page) @paginate {
+      # totalCount
+      pageInfo {
+        totalPages
+        currentPage
+      }
       edges {
         node {
-          ...on Post {
+          ... on Post {
+            id
             title
             path
-            date (format: "D. MMMM YYYY")
+            id
+            title
+            date (format: "MMMM DD, YYYY")
             timeToRead
             description
-            content
+            cover_image (width: 770, height: 380, blur: 10)
+            path
+            tags {
+              id
+              title
+              path
+            }
           }
         }
       }
@@ -31,14 +49,30 @@ query Tag ($id: ID!) {
 
 <script>
 import PostCard from '~/components/PostCard.vue'
+import BlogInfiniteLoader from "../components/BlogInfiniteLoader";
 
 export default {
   name: 'Tag',
   components: {
+    BlogInfiniteLoader,
     PostCard
   },
-  metaInfo: {
-    title: 'Hello, world!'
+  metaInfo: {},
+  data() {
+    return {
+      tagPosts: [],
+      stickyNavbar: true
+    }
+  },
+  methods: {
+    loadData(newPosts) {
+      this.tagPosts.push(...newPosts.tag.belongsTo.edges)
+    }
+  },
+  watch: {
+    $route() {
+      this.tagPosts = this.$page.tag.belongsTo.edges
+    }
   }
 }
 </script>

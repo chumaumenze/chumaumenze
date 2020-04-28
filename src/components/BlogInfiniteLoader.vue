@@ -3,9 +3,9 @@
     client-only
       infinite-loading(@infinite='infiniteHandler', spinner='waveDots')
         div(slot='no-more')
-          | You've scrolled through all the posts ;)
+          | You've scrolled through all the posts.
         div(slot='no-results')
-          | Sorry, no posts yet :(
+          | Sorry, no posts.
 </template>
 
 <script>
@@ -28,8 +28,15 @@
   },
   data() {
     return {
-      currentPath: this.$route.path,
       page: this.currentPage
+    }
+  },
+  computed: {
+    currentPath() {
+      let p = this.$route.path
+      return p.endsWith('/') 
+        ? p.substring(0, p.length - 1)
+        : p
     }
   },
   methods: {
@@ -42,9 +49,9 @@
         const { data } = await this.$fetch(
           `${currentPath}/${nextPage}`
         )
-        if (data.posts.edges.length) {
-          this.page = data.posts.pageInfo.currentPage
-          this.$emit("infinite-loaded", data.posts.edges)
+        if (data) {
+          this.page++
+          this.$emit("infinite-loaded", data)
           $state.loaded()
         } else {
           $state.complete()

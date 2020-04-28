@@ -1,6 +1,6 @@
 <template lang="pug">
   blog-layout(stickyNavbar)
-    #blog-post(v-bind:class="{'page-mt':stickyNavbar}")
+    #blog-post.page-mt
       // Post title
       .post-title-box(:id="`post-${$page.post.id}`")
         h1.post-title-text
