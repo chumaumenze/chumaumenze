@@ -73,10 +73,10 @@
 
   .navbar-link {
     text-transform: uppercase;
-    font-size: 11px;
+    font-size: 9px;
     font-weight: 600;
     letter-spacing: .2rem;
-    margin-right: 35px;
+    margin-right: 15px;
     text-decoration: none;
     line-height: 6.5rem;
     color: $light-mode__nav-link;
@@ -117,7 +117,7 @@
     border: 1px solid $light-mode__popover-border;
     border-radius: 4px;
     top: 80%;
-    left: -33%;
+    left: -63%;
     filter: drop-shadow(0 0 6px rgba(0, 0, 0, .1));
   }
 
@@ -166,7 +166,7 @@
     border-bottom: 1px solid $light-mode__popover-border;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 1.0rem;
+    font-size: 9px;
     font-weight: 600;
     text-align: center;
     letter-spacing: .1rem;
@@ -191,14 +191,17 @@
     border-bottom-color: $light-mode__popover-link-bg-hover;
   }
 
-  /* Media Queries
+/* Media Queries
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
   /* Larger than mobile */
-  @media (min-width: 400px) {
-    .navbar-link {
-      font-size: 9px;
-      margin-right: 15px;
+  @media (min-width: 400px) {}
+  @media (min-width: 550px) {
+    .popover {
+      left: -33%;
+    }
+    .popover-link {
+      font-size: 1rem;
     }
   }
 

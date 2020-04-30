@@ -35,7 +35,7 @@
             | Foundation & Python Nigeria. I volunteer for the Nigerian Red Cross 
             | and Be My Eyes.
           p In my spare time, I love to play tennis, video games and shoot some 
-            | photos. I also enjoy reading and seeing movies – history/non-fiction are my 
+            | photos. I also enjoy reading and movies – history/non-fiction are my 
             | favourites.
           p Want to know more about me? Let's 
             g-link(to="/connect") chat.
@@ -49,13 +49,18 @@
       margin-top: 2rem;
       margin-bottom: 0;
     }
+  }
+  .image {
+    width: 35%;
+    margin: 0;
+    transition: ease all .3s;
+    opacity: 1;
+    border-radius: 0.5em;
+    box-shadow: 8px 8px #dce6ea, 0 4px 8px rgba(17,35,56,.04), 0 0 8px rgba(17,35,56,.04), 0 18px 27px rgba(17,35,56,.11);
+  }
+  @media (min-width: 550px) {
     .image {
-      width: 80%;
-      margin: 0;
-      transition: ease all .3s;
-      opacity: 1;
-      border-radius: 0.5em;
-      box-shadow: 8px 8px #dce6ea, 0 4px 8px rgba(17,35,56,.04), 0 0 8px rgba(17,35,56,.04), 0 18px 27px rgba(17,35,56,.11);
+      width: 85%;
     }
   }
 </style>

@@ -34,25 +34,27 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "~/assets/style/variables";
-  
-  .has-docked-footer {
-    background-color: $light-mode__bg;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    /*height: 5rem;*/
-    padding: 2.5rem 0;
-    z-index: 99;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-  }
+@import "~/assets/style/variables";
 
-  @media (prefers-color-scheme: dark) {
-    .has-docked-footer {
-      background-color: $dark-mode__bg;
-    }
+.has-docked-footer {
+  background-color: $light-mode__bg;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  /*height: 5rem;*/
+  padding: 2rem 0;
+  z-index: 99;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+
+/* Media Queries */
+@media (prefers-color-scheme: dark) {
+  .has-docked-footer {
+    background-color: $dark-mode__bg;
   }
+}
 </style>

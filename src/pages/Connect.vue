@@ -12,15 +12,15 @@
                 .six.columns
                   label(for='blog-connect-form-name') Name
                   input#blog-connect-form-name.u-full-width(type='text', 
-                    placeholder='Enter your name' name="Name")
+                    placeholder='Enter your name' name="Name" required)
                 .six.columns
                   label(for='blog-connect-form-email') Email
                   input#blog-connect-form-email.u-full-width(type='email', 
-                    placeholder='myusername@email.com' name="Email")
+                    placeholder='myusername@email.com' name="Email" required)
               input#blog-connect-form-honeypot(name="honeypot" type="text")
               label(for='blog-connect-form-message') Message
               textarea#blog-connect-form-message.u-full-width(
-                placeholder='Hi Zuko …' name="Message")
+                placeholder='Hi Zuko …' name="Message" required)
               //div.h-captcha(:data-sitekey="$config.webTags.hCaptcha.siteKey" 
               //  :data-callback="$config.webTags.hCaptcha.callbackName")
               input.button(type='submit', value='Send')
@@ -30,7 +30,7 @@
           social-link
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
   #blog-connect-form-honeypot {
     display: none;
   }
