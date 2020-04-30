@@ -4,15 +4,18 @@ export default {
   socials: [
     {
       name: "twitter",
-      url: "https://twitter.com/chumaumenze"
+      url: "https://twitter.com/chumaumenze",
+      id: "chumaumenze"
     },
     {
       name: "medium",
-      url: "https://medium.com/@chumaumenze"
+      url: "https://medium.com/@chumaumenze",
+      id: "chumaumenze"
     },
     {
       name: "spotify",
-      url: "https://open.spotify.com/user/befjaofs7n7aa28s0x60cl1gk"
+      url: "https://open.spotify.com/user/befjaofs7n7aa28s0x60cl1gk",
+      id: "befjaofs7n7aa28s0x60cl1gk"
     }
   ],
   commentType: "disqus", // disqus or graphcomment

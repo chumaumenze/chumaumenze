@@ -1,10 +1,10 @@
 <template lang="pug">
-  section#blog-post-card.post-card
-    h2.post-title-text
+  section.post-card(itemscope itemtype="http://schema.org/Article")
+    h2.post-title-text(itemprop="headline")
       g-link.post-link(:to="post.path") {{post.title}}
     post-meta(:post="post")
         
-    p(v-html="post.description")
+    p(v-html="post.description" itemprop="description")
     hr
 </template>
 

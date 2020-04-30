@@ -25,6 +25,7 @@ query ($page: Int = 1) {
         id
         title
         date (format: "MMMM DD, YYYY")
+        ogpDate: date(format: "YYYY-MM-DD")
         timeToRead
         description
         cover_image (width: 770, height: 380, blur: 10)
@@ -63,6 +64,18 @@ export default {
   },
   created() {
     this.pagePosts.push(...this.$page.posts.edges)
+  },
+  metaInfo() {
+    return {
+      title: 'Blog',
+      meta: [
+        {
+          key: "og:title",
+          property: "og:title",
+          content: `Articles by ${this.$config.name}`
+        }
+      ]
+    }
   }
 }
 </script>

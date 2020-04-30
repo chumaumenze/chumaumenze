@@ -11,7 +11,9 @@
         let readTime = null
 			  if (this.post.timeToRead) {
           const time = `${this.post.timeToRead > 1 ? 'mins' : 'min'}`
-          readTime = `${this.post.timeToRead} ${time} read`
+          readTime = '<span itemprop="timeRequired" ' +
+            `content="PT${this.post.timeToRead}M">` +
+            `${this.post.timeToRead} ${time} read </span>`
         }
         return readTime
 			},
@@ -24,7 +26,8 @@
 				return tags ? tags.join(' &middot; ') : null
 			},
 			postMeta() {
-			  let meta = this.post.date
+			  let meta = '<span itemprop="datePublished" ' +
+          `content="${this.post.date}">${this.post.date}</span>`
         
         if (this.postTags) meta += ` &mdash; ${this.postTags}`
         if (this.postReadTime) meta += ` &mdash; ${this.postReadTime}`

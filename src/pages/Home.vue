@@ -8,7 +8,7 @@
               | I'm a terminal friendly, afrontend-type 
               | backend programmer based in Lagos.
             p Previously working as a Software Engineer at 
-              a(href="//britecore.com") BriteCore
+              a(href="https://www.britecore.com") BriteCore
             
             p
               span.note Currently open to job opportunities.
@@ -21,7 +21,8 @@
                 .row
                   .three.columns.image
                     a(href="#")
-                      img.svg-bg(src="../assets/images/validator.svg")
+                      img.svg-bg(src="../assets/images/validator.svg"
+                        alt="An approval seal used as Flask validator logo")
                   .nine.columns.description
                     h5
                       a(href="#") Flask Validator
@@ -31,7 +32,8 @@
                 .row
                   .three.columns.image
                     a(href="#")
-                      img.svg-bg(src="../assets/images/telegraph.svg")
+                      img.svg-bg(src="../assets/images/telegraph.svg" 
+                        alt="Telegraph used as Morscribe logo")
                   .nine.columns.description
                     h5
                       a(href="#") Morscribe
@@ -95,12 +97,26 @@
   }
 </style>
 
+<static-query>
+query {
+  metadata {
+    siteName
+  }
+}
+</static-query>
+
 <script>
 export default {
   name: 'BlogHome',
   data() {
     return {
       stickyNavbar: true
+    }
+  },
+  metaInfo() {
+    return {
+      title: this.$static.metadata.siteName,
+      titleTemplate: '%s'
     }
   }
 }

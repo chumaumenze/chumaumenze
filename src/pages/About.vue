@@ -14,7 +14,7 @@
           p I am a multidisciplinary developer based in Lagos, Nigeria. I 
             | currently work remotely as a software engineer with the amazing and
             | talented people at 
-            a(href="//britecore.com") Britecore
+            a(href="https://www.britecore.com") Britecore
             | , revolutionizing the insurance industry.
           p I am self-taught. I became very passionate about computers and software 
             | in my sophomore year and was interested in learning how it worked. 
@@ -65,6 +65,15 @@
   }
 </style>
 
+<static-query>
+query {
+  metadata {
+    siteName
+    siteUrl
+  }
+}
+</static-query>
+
 <script>
   import SocialLink from "../components/SocialLink";
   export default {
@@ -73,6 +82,45 @@
     data() {
       return {
         stickyNavbar: true
+      }
+    },
+    metaInfo() {
+      return {
+        title: 'About',
+        meta: [
+          {
+            key: "og:type",
+            property: "og:type",
+            content: "profile"
+          },
+          {
+            key: "og:url",
+            property: "og:url",
+            content: this.$static.metadata.siteUrl + this.$route.fullPath
+          },
+          {
+            key: "og:image",
+            property: "og:image",
+            content: this.$static.metadata.siteUrl
+              + `${require("~/assets/images/goofy.jpeg")}`
+          },
+          {
+            key: "og:image-1",
+            property: "og:image",
+            content: this.$static.metadata.siteUrl
+              + `${require("~/assets/images/goofy-2.png")}`
+          },
+          {
+            key: "profile:first_name",
+            property: "profile:first_name",
+            content: this.$config.name.split(' ')[0]
+          },
+          {
+            key: "profile:last_name",
+            property: "profile:last_name",
+            content: this.$config.name.split(' ')[1]
+          },
+        ]
       }
     }
   }

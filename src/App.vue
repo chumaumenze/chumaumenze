@@ -14,6 +14,7 @@ query {
   metadata {
     siteName
     siteDescription
+    siteUrl
   }
 }
 </static-query>
@@ -22,13 +23,66 @@ query {
 export default {
   metaInfo() {
     return {
-      title: this.$static.metadata.siteName,
+      htmlAttrs: {
+        prefix: "og: http://ogp.me/ns#",
+      },
       meta: [
         {
           key: 'description',
           name: 'description',
           content: this.$static.metadata.siteDescription
-        }
+        },
+        {
+          name: 'robots',
+          key: 'robots',
+          content: 'index, follow'
+        },
+        {
+          key: 'author',
+          name: 'author',
+          content: this.$config.name
+        },
+        {
+          key: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image'
+        },
+        {
+          key: 'twitter:site',
+          name: 'twitter:site',
+          content: '@chumaumenze'
+        },
+        {
+          key: 'twitter:creator',
+          name: 'twitter:creator',
+          content: '@chumaumenze'
+        },
+        {
+          key: "og:title",
+          property: "og:title",
+          content: this.$static.metadata.siteName
+        },
+        {
+          key: "og:site_name",
+          property: "og:site_name",
+          content: this.$static.metadata.siteName
+        },
+        {
+          key: "og:description",
+          property: "og:description",
+          content: this.$static.metadata.siteDescription
+        },
+        {
+          key: "og:url",
+          property: "og:url",
+          content: this.$static.metadata.siteUrl
+        },
+        {
+          key: "og:image",
+          property: "og:image",
+          content: this.$static.metadata.siteUrl
+            + `${require("~/assets/images/profile.png")}`
+        },
       ]
     }
   },
