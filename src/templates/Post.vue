@@ -52,7 +52,13 @@
       title: this.$page.post.title,
       meta: [
         {
+          key: 'description',
           name: 'description',
+          content: this.$page.post.description
+        },
+        {
+          key: 'og:description',
+          name: 'og:description',
           content: this.$page.post.description
         },
         {
@@ -63,7 +69,7 @@
         {
           key: "og:title",
           property: "og:title",
-          content: this.$page.post.title
+          content: `${this.$page.post.title} | ${this.$parent.$static.metadata.siteName}`
         },
         {
           key: "og:url",
@@ -76,12 +82,6 @@
           content: this.$parent.$static.metadata.siteUrl +
             (this.$page.post.cover_image && this.$page.post.cover_image.src) 
             || `${require("~/assets/images/profile.png")}`
-        },
-        {
-          key: "og:image-1",
-          property: "og:image",
-          content: this.$parent.$static.metadata.siteUrl
-            + `${require("~/assets/images/profile.png")}`
         },
         {
           key: "article:published_time",

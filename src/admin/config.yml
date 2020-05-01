@@ -1,6 +1,8 @@
 backend:
   name: gitlab
   repo: chumaumenze/chumaumenze
+  base_url: https://gitlab.com
+  auth_endpoint: oauth/authorize
 
 media_folder: "static/uploads/images"
 public_folder: "/uploads/images"

@@ -7,7 +7,3 @@ http://chumaumenze.netlify.app/* https://chumaumenze.com/:splat 301!
 # Wildcard Rules [Catch-all]
 /lens/* https://lens.chumaumenze.com/:splat 301!
 /photos/* https://lens.chumaumenze.com/:splat 301!
-# /blog/* https://blog.chumaumenze.com/:splat 301!
-
-# Netlify settings for single-page application
-/*    /index.html   200
