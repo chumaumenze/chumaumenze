@@ -72,8 +72,18 @@ export default {
         {
           key: "og:title",
           property: "og:title",
-          content: `Articles by ${this.$config.name}`
-        }
+          content: `Articles by ${this.$config.name} | ${this.$parent.$static.metadata.siteName}`
+        },
+        {
+          key: 'description',
+          name: 'description',
+          content: `All articles published by ${this.$config.name}`
+        },
+        {
+          key: 'og:description',
+          name: 'og:description',
+          content: `All articles published by ${this.$config.name}`
+        },
       ]
     }
   }

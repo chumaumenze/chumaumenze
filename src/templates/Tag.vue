@@ -56,7 +56,28 @@ export default {
     BlogInfiniteLoader,
     PostCard
   },
-  metaInfo: {},
+  metaInfo() {
+    return {
+      title: `#${this.$page.tag.title}`,
+      meta: [
+        {
+          key: "og:title",
+          property: "og:title",
+          content: `#${this.$page.tag.title} | ${this.$parent.$static.metadata.siteName}`
+        },
+        {
+          key: 'description',
+          name: 'description',
+          content: `Articles about #${this.$page.tag.title} published by ${this.$config.name}`
+        },
+        {
+          key: 'og:description',
+          name: 'og:description',
+          content: `Articles about #${this.$page.tag.title} published by ${this.$config.name}`
+        },
+      ]
+    }
+  },
   data() {
     return {
       tagPosts: []

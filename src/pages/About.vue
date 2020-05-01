@@ -1,6 +1,6 @@
 <template lang="pug">
-  blog-layout(v-bind:stickyNavbar="stickyNavbar")
-    #blog-about(v-bind:class="{'page-mt':stickyNavbar}")
+  blog-layout(stickyNavbar)
+    #blog-about.page-mt
       h1 Hi, I'm Zuko...
       .row.profile
         .four.columns
@@ -94,6 +94,16 @@ query {
             content: "profile"
           },
           {
+            key: 'twitter:card',
+            name: 'twitter:card',
+            content: 'summary'
+          },
+          {
+            key: "og:title",
+            property: "og:title",
+            content: `About ${this.$config.name} | ${this.$parent.$static.metadata.siteName}`
+          },
+          {
             key: "og:url",
             property: "og:url",
             content: this.$static.metadata.siteUrl + this.$route.fullPath
@@ -103,12 +113,6 @@ query {
             property: "og:image",
             content: this.$static.metadata.siteUrl
               + `${require("~/assets/images/goofy.jpeg")}`
-          },
-          {
-            key: "og:image-1",
-            property: "og:image",
-            content: this.$static.metadata.siteUrl
-              + `${require("~/assets/images/goofy-2.png")}`
           },
           {
             key: "profile:first_name",

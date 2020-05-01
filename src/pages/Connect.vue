@@ -41,6 +41,18 @@
   import SocialLink from "../components/SocialLink";
   export default {
     name: 'Contact',
-    components: {SocialLink}
+    components: {SocialLink},
+    metaInfo() {
+      return {
+        title: 'Blog',
+        meta: [
+          {
+            key: "og:title",
+            property: "og:title",
+            content: `Connect with ${this.$config.name} | ${this.$parent.$static.metadata.siteName}`
+          }
+        ]
+      }
+    }
   }
 </script>

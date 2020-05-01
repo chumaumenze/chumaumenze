@@ -28,20 +28,35 @@ export default {
       },
       link: [
         {
-          rel: "preconnect dns-prefetch",
+          rel: "preconnect",
           href: "https://www.googletagmanager.com",
           crossorigin: ""
         },
         {
-          rel: "preconnect dns-prefetch",
+          rel: "dns-prefetch",
+          href: "https://www.googletagmanager.com",
+          crossorigin: ""
+        },
+        {
+          rel: "preconnect",
           href: "https://www.google-analytics.com",
           crossorigin: ""
         },
         {
-          rel: "preconnect dns-prefetch",
+          rel: "dns-prefetch",
+          href: "https://www.google-analytics.com",
+          crossorigin: ""
+        },
+        {
+          rel: "preconnect",
           href: "https://fonts.gstatic.com",
           crossorigin: ""
-        }
+        },
+        {
+          rel: "dns-prefetch",
+          href: "https://fonts.gstatic.com",
+          crossorigin: ""
+        },
       ],
       meta: [
         {
@@ -62,7 +77,7 @@ export default {
         {
           key: 'twitter:card',
           name: 'twitter:card',
-          content: 'summary_large_image'
+          content: 'summary'
         },
         {
           key: 'twitter:site',
