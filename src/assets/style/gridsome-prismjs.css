@@ -1,0 +1,98 @@
+/* Reset Code Blocks */
+code {
+    margin: unset;
+    border: unset;
+    border-radius: unset;
+    background-color: unset;
+}
+
+pre > code {
+    display: unset;
+    padding: unset;
+}
+
+
+/**
+    Themes
+**/
+
+/*@import "../../../node_modules/prismjs/themes/prism-solarizedlight.css";*/
+/*@import "../../../node_modules/gridsome-plugin-remark-prismjs-all/themes/solarized.css";*/
+/*@import "../../../node_modules/gridsome-plugin-remark-prismjs-all/themes/tomorrow.css";*/
+@import "../../../node_modules/gridsome-plugin-remark-prismjs-all/themes/night-owl.css";
+
+
+/**
+    Line Numbers & Commandline Prompt
+**/
+@import "../../../node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css";
+@import "../../../node_modules/prismjs/plugins/command-line/prism-command-line.css";
+
+/**
+    Custom Style
+**/
+code[class*="language-"],
+pre[class*="language-"] {
+    font-family: "Operator Mono Light", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    font-style: italic;
+}
+
+
+/**
+ * Add back the container background-color, border-radius, padding, margin
+ * and overflow that we removed from <pre>.
+ */
+/*.gridsome-highlight {*/
+/*    !* for solarized theme *!*/
+/*    background-color: #fdf6e3;*/
+/*    border-radius: 0.3em;*/
+/*    margin: 0.5em 0;*/
+/*    padding: 1em;*/
+/*    overflow: auto;*/
+/*}*/
+/*.gridsome-highlight-code-line {*/
+/*    !* for solarized theme *!*/
+/*    background-color: #feb;*/
+/*    display: block;*/
+/*    margin-right: -1em;*/
+/*    margin-left: -1em;*/
+/*    padding-right: 1em;*/
+/*    padding-left: 0.75em;*/
+/*    border-left: 0.25em solid #f99;*/
+/*}*/
+
+/*!***/
+/* * Remove the default PrismJS theme background-color, border-radius, margin,*/
+/* * padding and overflow.*/
+/* * 1. Make the element just wide enough to fit its content.*/
+/* * 2. Always fill the visible space in .gatsby-highlight.*/
+/* * 3. Adjust the position of the line numbers*/
+/* *!*/
+/*.gridsome-highlight pre[class*="language-"] {*/
+/*    background-color: transparent;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    overflow: initial;*/
+/*    float: left; !* 1 *!*/
+/*    min-width: 100%; !* 2 *!*/
+/*}*/
+
+/*!* Adjust the position of the line numbers *!*/
+/*.gridsome-highlight pre[class*="language-"].line-numbers {*/
+/*    padding-left: 2.8em;*/
+/*}*/
+
+/*.gridsome-code-title {*/
+/*    position: relative;*/
+/*    z-index: 100;*/
+/*    margin-bottom: -0.8em;*/
+/*    background-color: #feb; !* solarized highlight lines color *!*/
+/*    color: red; !* why not ;-) *!*/
+/*    font-style: italic;*/
+/*    font-weight: 100;*/
+/*    text-align: center;*/
+/*    font-family: PT Mono, Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;*/
+/*    line-height: 1.5;*/
+/*    border-top-left-radius: 0.3em;*/
+/*    border-top-right-radius: 0.3em;*/
+/*}*/

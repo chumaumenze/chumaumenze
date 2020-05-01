@@ -1,0 +1,41 @@
+backend:
+  name: gitlab
+  repo: chumaumenze/gridsome-zuko
+
+media_folder: "static/uploads/images"
+public_folder: "/uploads/images"
+
+publish_mode: editorial_workflow
+
+collections:
+  - label: "Posts"
+    name: "posts"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "blog/{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Publish Date", name: "date", widget: "datetime", required: true, 
+         dateFormat: "YYYY-MM-DD"}
+      - {label: "Description", name: "description", widget: "text", required: true}
+      - {label: "Cover Image", name: "cover_image", widget: "image", 
+         allow_multiple: false, required: false}
+      - {label: "Cover Image Caption", name: "cover_image_caption", 
+         widget: "string", required: false}
+      - {label: "Category", name: "category", widget: "select", options: 
+        [ 
+         { label: "Essay", value: "essay" }, 
+         { label: "Photo", value: "photo" },
+         { label: "Journal", value: "journal" },
+         { label: "General", value: "general" },
+         { label: "Prose", value: "prose" },
+         { label: "Poem", value: "poem" },
+        ],
+        default: "general",
+        required: false
+      } 
+      - {label: "Tags", name: "tags", widget: "list", allow_add: true, default: []}
+      - {label: "Series", name: "series", widget: "list", allow_add: true, default: []}
+      - {label: "Published", name: "published", widget: "boolean", default: true}
+      - {label: "Content", name: "body", widget: "markdown", required: true}
