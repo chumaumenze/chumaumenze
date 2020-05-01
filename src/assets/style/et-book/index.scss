@@ -8,7 +8,8 @@
   src: local('et-book-roman-line-figures/et-book-roman-line-figures.eot');
   src: local("et-book-roman-line-figures/et-book-roman-line-figures.eot?#iefix"), local("et-book-roman-line-figures/et-book-roman-line-figures.woff"), local("et-book-roman-line-figures/et-book-roman-line-figures.ttf"), local("et-book-roman-line-figures/et-book-roman-line-figures.svg#etbookromanosf");
   font-weight: normal;
-  font-style: normal
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -16,7 +17,8 @@
   src: local("et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot");
   src: local("et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot?#iefix"), local("et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.woff"), local("et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.ttf"), local("et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.svg#etbookromanosf");
   font-weight: normal;
-  font-style: italic
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -24,5 +26,6 @@
   src: local("et-book-bold-line-figures/et-book-bold-line-figures.eot");
   src: local("et-book-bold-line-figures/et-book-bold-line-figures.eot?#iefix"), local("et-book-bold-line-figures/et-book-bold-line-figures.woff"), local("et-book-bold-line-figures/et-book-bold-line-figures.ttf"), local("et-book-bold-line-figures/et-book-bold-line-figures.svg#etbookromanosf");
   font-weight: bold;
-  font-style: normal
+  font-style: normal;
+  font-display: swap;
 }

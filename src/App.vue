@@ -26,6 +26,23 @@ export default {
       htmlAttrs: {
         prefix: "og: http://ogp.me/ns#",
       },
+      link: [
+        {
+          rel: "preconnect dns-prefetch",
+          href: "https://www.googletagmanager.com",
+          crossorigin: ""
+        },
+        {
+          rel: "preconnect dns-prefetch",
+          href: "https://www.google-analytics.com",
+          crossorigin: ""
+        },
+        {
+          rel: "preconnect dns-prefetch",
+          href: "https://fonts.gstatic.com",
+          crossorigin: ""
+        }
+      ],
       meta: [
         {
           key: 'description',
