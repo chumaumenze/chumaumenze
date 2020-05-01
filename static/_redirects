@@ -1,8 +1,8 @@
 # Redirect default Netlify subdomain to primary domain
-https://chumaumenze.netlify.com/* https://www.chumaumenze.com/:splat 301!
+https://chumaumenze.netlify.app/* https://www.chumaumenze.com/:splat 301!
 
-These extra rules are required because HTTPS is not forced
-http://chumaumenze.netlify.com/* https://www.chumaumenze.com/:splat 301!
+#These extra rules are required because HTTPS is not forced
+http://chumaumenze.netlify.app/* https://www.chumaumenze.com/:splat 301!
 
 # Wildcard Rules [Catch-all]
 /lens/* https://lens.chumaumenze.com/:splat 301!
