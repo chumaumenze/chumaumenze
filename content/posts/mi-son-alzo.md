@@ -7,7 +7,7 @@ series: false
 canonical_url: false
 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 category: dev
-cover_image: ./images/alexandr-podvalny-220262-unsplash.jpg
+cover_image: ../../static/uploads/images/alexandr-podvalny-220262-unsplash.jpg
 cover_image_caption: Photo by Shahadat Shemul on Unsplash
 author: author1
 ---
@@ -81,6 +81,10 @@ Result:
 
 You can also start numbering at any index you wish (here, numbering
 will start at index 21):
+
+!["Credits: Alexander Podvalny / UnSplash"](../../static/uploads/images/alexandr-podvalny-220262-unsplash.jpg)
+
+aaaaaaaaaaa
 
 `````md
 ```html{numberLines: 21}

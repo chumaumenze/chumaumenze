@@ -2,17 +2,41 @@ backend:
   name: gitlab
   repo: chumaumenze/gridsome-zuko
 
-media_folder: "static/uploads"
-public_folder: "/uploads"
+media_folder: "static/uploads/images"
+public_folder: "/uploads/images"
+
+publish_mode: editorial_workflow
 
 collections:
-  - name: "posts"
-    label: "Posts"
-    folder: "posts"
+  - label: "Posts"
+    name: "posts"
+    folder: "content/posts"
     create: true
     slug: "{{slug}}"
+    preview_path: "blog/{{slug}}"
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Excerpt", name: "excerpt", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "date"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Publish Date", name: "date", widget: "date", required: true}
+      - {label: "Excerpt", name: "excerpt", widget: "string", required: true}
+      - {label: "Description", name: "description", widget: "text", required: true}
+      - {label: "Cover Image", name: "cover_image", widget: "image", 
+         allow_multiple: false, required: false}
+      - {label: "Cover Image Caption", name: "cover_image_caption", 
+         widget: "string", required: false}
+      - {label: "Category", name: "category", widget: "select", options: 
+        [ 
+         { label: "Essay", value: "essay" }, 
+         { label: "Photo", value: "photo" },
+         { label: "Journal", value: "journal" },
+         { label: "Prose", value: "prose" },
+         { label: "Poem", value: "poem" },
+        ],
+        default: "journal",
+        required: false
+      } 
+      - {label: "Tags", name: "tags", widget: "list", allow_add: true, default: []}
+      - {label: "Series", name: "series", widget: "boolean", default: false}
+      - {label: "Canonical Url", name: "canonical_url", widget: "boolean", default: false}
+      - {label: "Published", name: "published", widget: "boolean", default: true}
+      - {label: "Author", name: "author", widget: "string", default: "Chuma Umenze", required: false}
+      - {label: "Content", name: "body", widget: "markdown", required: true}

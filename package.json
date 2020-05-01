@@ -5,6 +5,8 @@
   "scripts": {
     "build": "gridsome build",
     "serve": "gridsome develop",
+    "netlify-serve": "netlify dev",
+    "netlify-build": "netlify build",
     "explore": "gridsome explore"
   },
   "dependencies": {

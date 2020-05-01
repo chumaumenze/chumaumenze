@@ -73,7 +73,9 @@
         {
           key: "og:image",
           property: "og:image",
-          content: this.$page.post.cover_image.src
+          content: this.$parent.$static.metadata.siteUrl +
+            (this.$page.post.cover_image && this.$page.post.cover_image.src) 
+            || `${require("~/assets/images/profile.png")}`
         },
         {
           key: "og:image-1",
