@@ -7,11 +7,18 @@
 </style>
 
 <script>
+  import GraphMeta from "~/mixins/GraphMeta.vue";
+  
   export default {
     name: 'Code',
+    mixins: [GraphMeta],
     data() {
       return {
-        stickyNavbar: false
+        stickyNavbar: false,
+        graphMeta: {
+          title: 'Code',
+          description: `Code`
+        }
       }
     }
   }

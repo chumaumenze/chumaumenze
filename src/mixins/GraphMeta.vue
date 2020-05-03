@@ -1,12 +1,3 @@
-<static-query>
-query {
-  metadata {
-    siteName
-    siteUrl
-  }
-}
-</static-query>
-
 <script>
   export default {
     name: "GraphMeta",
@@ -15,6 +6,7 @@ query {
         graphMeta: {
           type: 'website', // article, profile, website
           twitterType: 'summary', // summary, summary_large_image
+          a: this.$config.author,
           twitterID: `@${this.$config.author.socials.twitter.id}`,
           name: this.$parent.$static.metadata.siteName,
           title: this.$parent.$static.metadata.siteName,
@@ -96,6 +88,24 @@ query {
             rel: "dns-prefetch",
             href: "https://fonts.gstatic.com",
             crossorigin: ""
+          },
+          {
+            rel: 'alternate',
+            type:"application/rss+xml",
+            title: `RSS Feed for ${this.graphMeta.url}`,
+            href: "/feed.xml"
+          },
+          {
+            rel: 'alternate',
+            type:"application/json",
+            title: `RSS Feed for ${this.graphMeta.url}`,
+            href: "/feed.json"
+          },
+          {
+            rel: 'alternate',
+            type:"application/atom+xml",
+            title: `RSS Feed for ${this.graphMeta.url}`,
+            href: "/feed.atom"
           },
           ...this.graphMeta.links
         ],
@@ -234,7 +244,7 @@ query {
           ...Array.from(
             ['published_time', 'modified_time', 'expiration_time', 
               'author', 'tag'], 
-            (x) => {
+            (x, i) => {
               if (this.graphMeta.type === 'article'){
                 return {
                   key: `article:${x}`,

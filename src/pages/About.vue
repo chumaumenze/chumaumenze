@@ -6,9 +6,9 @@
         .four.columns
           div
             //img.image(src="../assets/images/profile.png")
-            img.image(src="../assets/images/goofy.jpeg")
+            g-image.image(src="../assets/images/goofy.jpeg")
             h5 Chuma Zuko Umenze
-            a(:href="`mailto:${this.$config.email}`") {{this.$config.email}}
+            a(:href="`mailto:${this.$config.author.email}`") {{this.$config.author.email}}
             social-link 
         .eight.columns
           p I am a multidisciplinary developer based in Lagos, Nigeria. I 
@@ -65,67 +65,34 @@
   }
 </style>
 
-<static-query>
-query {
-  metadata {
-    siteName
-    siteUrl
-  }
-}
-</static-query>
-
 <script>
   import SocialLink from "../components/SocialLink";
+  import GraphMeta from "~/mixins/GraphMeta.vue";
+  
   export default {
     name: 'About',
+    mixins: [GraphMeta],
     components: {SocialLink},
     data() {
       return {
-        stickyNavbar: true
+        stickyNavbar: true,
+        graphMeta: {
+          type: 'profile',
+          title: `About ${this.$config.author.name}`,
+          image: [
+            {
+              url: this.$parent.$static.metadata.siteUrl
+                + `${require("~/assets/images/goofy.png")}`,
+              alt: `A picture of ${this.$config.author.name}`
+            },
+            {
+              url: this.$parent.$static.metadata.siteUrl
+                + `${require("~/assets/images/goofy.jpeg")}`,
+              alt: `A picture of ${this.$config.author.name}`
+            }
+          ]
+        }
       }
     },
-    metaInfo() {
-      return {
-        title: 'About',
-        meta: [
-          {
-            key: "og:type",
-            property: "og:type",
-            content: "profile"
-          },
-          {
-            key: 'twitter:card',
-            name: 'twitter:card',
-            content: 'summary'
-          },
-          {
-            key: "og:title",
-            property: "og:title",
-            content: `About ${this.$config.name} | ${this.$parent.$static.metadata.siteName}`
-          },
-          {
-            key: "og:url",
-            property: "og:url",
-            content: this.$static.metadata.siteUrl + this.$route.fullPath
-          },
-          {
-            key: "og:image",
-            property: "og:image",
-            content: this.$static.metadata.siteUrl
-              + `${require("~/assets/images/goofy.jpeg")}`
-          },
-          {
-            key: "profile:first_name",
-            property: "profile:first_name",
-            content: this.$config.name.split(' ')[0]
-          },
-          {
-            key: "profile:last_name",
-            property: "profile:last_name",
-            content: this.$config.name.split(' ')[1]
-          },
-        ]
-      }
-    }
   }
 </script>

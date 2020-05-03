@@ -6,8 +6,8 @@
 
 module.exports = {
   siteName: 'Zuko',
-  siteDescription: 'Chuma Zuko Umenze, noun: A software engineer, photographer' +
-    ' and iridescent persona. Proudly made in Nigeria. Available worldwide.',
+  siteDescription: 'Chuma Zuko Umenze, n: A software engineer, writer, photographer' +
+    ' and iridescent persona. Proudly made in Nigeria.',
   siteUrl: 'https://chumaumenze.com',
   titleTemplate: `%s | Zuko`,
   permalinks:{
@@ -15,7 +15,7 @@ module.exports = {
   },
   icon: './src/assets/images/favicon.png',
   templates: {
-    Post: '/blog/:year/:month/:day/:title',
+    Post: '/blog/:title',
     Tag: '/tags/:id'
   },
 

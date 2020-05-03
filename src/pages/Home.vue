@@ -101,22 +101,20 @@
 query {
   metadata {
     siteName
+    siteDescription
+    siteUrl
   }
 }
 </static-query>
 
 <script>
+import GraphMeta from "~/mixins/GraphMeta.vue";
 export default {
   name: 'BlogHome',
+  mixins: [GraphMeta],
   data() {
     return {
       stickyNavbar: true
-    }
-  },
-  metaInfo() {
-    return {
-      title: this.$static.metadata.siteName,
-      titleTemplate: '%s'
     }
   }
 }

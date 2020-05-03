@@ -1,6 +1,8 @@
 ---
 title: Difference between Python 2 and Python 3
-date: 2016-08-05
+published_time: 2016-08-05T22:42:23.761Z
+modified_time: 2020-05-01T23:00:23.161Z
+expiration_time: 2021-01-01T00:00:00.000Z
 published: true
 category: journal
 tags: [Python, Syntax, Coding, Programming]

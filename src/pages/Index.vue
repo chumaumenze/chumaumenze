@@ -6,10 +6,7 @@
   import BlogHome from "../pages/Home";
   export default {
     name: "Index",
-    components: {BlogHome}
+    mixins: [BlogHome],
+    components: {BlogHome},
   }
 </script>
-
-<style scoped>
-
-</style>

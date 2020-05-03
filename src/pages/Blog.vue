@@ -1,6 +1,6 @@
 <template lang="pug">
-  blog-layout(v-bind:stickyNavbar="stickyNavbar")
-    div#blog-post-list
+  blog-layout(stickyNavbar)
+    div#blog-post-list.page-mt
       // List posts
       post-card(v-for="post in pagePosts" :key="post.node.id" :post="post.node")
       blog-infinite-loader(:current-page="$page.posts.pageInfo.currentPage" 
@@ -15,7 +15,7 @@
 
 <page-query>
 query ($page: Int = 1) {
-  posts: allPost(filter: { published: { eq: true }} perPage: 5, page: $page) @paginate {
+  posts: allPost(filter: { published: { eq: true }} perPage: 5, page: $page, sort: {by: "published_time"}) @paginate {
     pageInfo {
       totalPages
       currentPage
@@ -24,8 +24,9 @@ query ($page: Int = 1) {
       node {
         id
         title
-        date (format: "MMMM DD, YYYY")
-        ogpDate: date(format: "YYYY-MM-DD")
+        date: published_time(format: "MMMM DD, YYYY")
+        published_time(format: "YYYY-MM-DD")
+        modified_time(format: "YYYY-MM-DD")
         timeToRead
         description
         cover_image (width: 770, height: 380, blur: 10)
@@ -44,9 +45,11 @@ query ($page: Int = 1) {
 <script>
 import PostCard from '~/components/PostCard.vue'
 import BlogInfiniteLoader from "../components/BlogInfiniteLoader";
+import GraphMeta from "~/mixins/GraphMeta.vue";
 
 export default {
   name: 'Blog',
+  mixins: [GraphMeta],
   components: {
     BlogInfiniteLoader,
     PostCard,
@@ -54,7 +57,10 @@ export default {
   data() {
     return {
       pagePosts: [],
-      stickyNavbar: false
+      graphMeta: {
+        title: 'Blog',
+        description: `Articles and tutorials published by ${this.$config.author.name}`
+      }
     }
   },
   methods: {
@@ -65,27 +71,5 @@ export default {
   created() {
     this.pagePosts.push(...this.$page.posts.edges)
   },
-  metaInfo() {
-    return {
-      title: 'Blog',
-      meta: [
-        {
-          key: "og:title",
-          property: "og:title",
-          content: `Articles by ${this.$config.name} | ${this.$parent.$static.metadata.siteName}`
-        },
-        {
-          key: 'description',
-          name: 'description',
-          content: `All articles published by ${this.$config.name}`
-        },
-        {
-          key: 'og:description',
-          name: 'og:description',
-          content: `All articles published by ${this.$config.name}`
-        },
-      ]
-    }
-  }
 }
 </script>
