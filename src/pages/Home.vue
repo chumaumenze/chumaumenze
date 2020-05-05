@@ -5,7 +5,7 @@
         .row
           .ten.columns
             h2 
-              | I'm a terminal friendly, afrontend-type 
+              | Hi, I'm Chuma. I'm a terminal-friendly, frontend-type 
               | backend programmer based in Lagos.
             p Previously working as a Software Engineer at 
               a(href="https://www.britecore.com") BriteCore
@@ -21,24 +21,36 @@
                 .row
                   .three.columns.image
                     a(href="#")
-                      img.svg-bg(src="../assets/images/validator.svg"
+                      img.svg-bg.u-max-full-width(src="../assets/images/validator.svg"
                         alt="An approval seal used as Flask validator logo")
                   .nine.columns.description
                     h5
                       a(href="#") Flask Validator
-                    p Project Flask Validator. 
-                      | Labtuit works with active candidates to help them land their dream job.
+                    p An open-source request validation library for Flask micro-framework.
               .six.columns.project
                 .row
                   .three.columns.image
                     a(href="#")
-                      img.svg-bg(src="../assets/images/telegraph.svg" 
+                      img.svg-bg.u-max-full-width(src="../assets/images/qr_code.svg" 
+                        alt="QR code used as Simone logo")
+                  .nine.columns.description
+                    h5
+                      a(href="#") Simone
+                    p Test your USSD application locally from your smart device.
+              //.six.columns.project
+                .row
+                  .three.columns.image
+                    a(href="#")
+                      img.svg-bg.u-max-full-width(src="../assets/images/telegraph.svg" 
                         alt="Telegraph used as Morscribe logo")
                   .nine.columns.description
                     h5
                       a(href="#") Morscribe
-                    p Morscribe description. 
-                      | Labtuit works with active candidates to help them land their dream job.
+                    p Modern telegraph for transcribing spoken words and 
+                      | text to morse, vice-versa.
+          .row
+            h6  >> 
+              g-link(to="/projects") See projects.
 </template>
 
 <style lang="scss" scoped>

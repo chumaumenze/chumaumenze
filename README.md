@@ -25,7 +25,7 @@ TBA
 
 ### 2. Install this starter
 
-1. `gridsome create my-site https://gitlab.com/chumaumenze/gridsome-zuko.git`
+1. `gridsome create my-site https://gitlab.com/chumaumenze/chumaumenze.com.git`
 2. `cd my-site` to open folder
 3. `gridsome develop` to start local dev server at `http://localhost:8080`
 4. Happy coding 🎉

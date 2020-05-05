@@ -5,11 +5,11 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Zuko',
-  siteDescription: 'Chuma Zuko Umenze, n: A software engineer, writer, photographer' +
+  siteName: 'Chuma Umenze',
+  siteDescription: 'Chuma Umenze is a software engineer, writer, photographer' +
     ' and iridescent persona. Proudly made in Nigeria.',
   siteUrl: 'https://chumaumenze.com',
-  titleTemplate: `%s | Zuko`,
+  titleTemplate: `%s | Chuma Umenze`,
   permalinks:{
     trailingSlash: false
   },
@@ -103,9 +103,9 @@ module.exports = {
         // Optional: any properties you wish to set for `Feed()` constructor
         // See https://www.npmjs.com/package/feed#example for available properties
         feedOptions: {
-          title: 'Zuko',
-          description: 'Chuma Zuko Umenze, noun: A software engineer, photographer' +
-            ' and iridescent persona. Made in Nigeria. Available worldwide'
+          title: 'Chuma Umenze',
+          description: 'Chuma Umenze is a software engineer, writer, photographer' +
+            ' and iridescent persona. Proudly made in Nigeria.'
         },
         // === All options after this point show their default values ===
         // Optional; opt into which feeds you wish to generate, and set their output path

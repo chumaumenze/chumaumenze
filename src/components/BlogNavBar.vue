@@ -8,7 +8,7 @@
       .container
         ul.navbar-list
           li.navbar-item(v-if="isSticky")
-            g-link.navbar-link(to="/" exact) Zuko
+            g-link.navbar-link(to="/" exact) {{$static.metadata.siteName.split(' ')[0]}}
           li.navbar-item
             g-link.navbar-link(to="/about") About
           li.navbar-item
@@ -20,14 +20,12 @@
             #blog-nav-more.popover
               ul.popover-list
                 li.popover-item
-                  a.popover-link(href='https://gitlab.com') Code
-                li.popover-item
                   a.popover-link(href='https://lens.chumaumenze.com') Photos
                 li.popover-item
                   g-link.popover-link(to='/archive') Archive
                 li.popover-item
                   g-link.popover-link(to='/tags') Tags
-                //li.popover-item
+                li.popover-item
                   g-link.popover-link(href='/ideas') Ideas
 
 </template>
