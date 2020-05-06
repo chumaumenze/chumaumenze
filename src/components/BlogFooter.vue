@@ -2,10 +2,10 @@
   footer#blog-footer(v-bind:class ="{'has-docked-footer':stickyFooter}")
     // Footer
     .container
-      span.u-pull-left {{`&#169; ${currentYear} `}}
-        g-link(to="/") {{$static.metadata.siteName}}
-      span.u-pull-right Powered by 
+      span.u-pull-left.gridsome-attr Powered by 
         a(href="//gridsome.org") Gridsome
+      span.u-pull-right {{`&#169; ${currentYear} `}}
+        g-link(to="/") {{$static.metadata.siteName}}
 </template>
 
 <static-query>
@@ -50,6 +50,9 @@
   border-bottom: 1px solid #eee;
 }
 
+.gridsome-attr {
+  display: none;
+} 
 
 /* Media Queries */
 @media (prefers-color-scheme: dark) {

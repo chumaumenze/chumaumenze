@@ -26,7 +26,7 @@
               input.button(type='submit', value='Send')
 
         .four.columns
-          a(:href="`mailto:${this.$config.email}`") {{this.$config.email}}
+          a(:href="`mailto:${this.$config.author.email}`") {{this.$config.author.email}}
           social-link
 </template>
 
@@ -39,19 +39,18 @@
 
 <script>
   import SocialLink from "../components/SocialLink";
+  import GraphMeta from "~/mixins/GraphMeta.vue";
+  
   export default {
     name: 'Contact',
+    mixins: [GraphMeta],
     components: {SocialLink},
-    metaInfo() {
+    data(){
       return {
-        title: 'Blog',
-        meta: [
-          {
-            key: "og:title",
-            property: "og:title",
-            content: `Connect with ${this.$config.name} | ${this.$parent.$static.metadata.siteName}`
-          }
-        ]
+        graphMeta: {
+          title: `Connect with ${this.$config.author.name}`,
+          description: 'Write me a message or connect with me on social platforms.'
+        }
       }
     }
   }

@@ -1,8 +1,10 @@
 ---
 title: Difference between Python 2 and Python 3
-date: 2016-08-05
+published_time: 2016-08-05T22:42:23.761Z
+modified_time: 2020-05-01T23:00:23.161Z
+expiration_time: 2021-01-01T00:00:00.000Z
 published: true
-category: journal
+category: tech
 tags: [Python, Syntax, Coding, Programming]
 description: "Many wonder the difference between Py3 and Py2. Some beginners are not sure which version of Python to learn. While most organizations still enjoys using Python 2.x, it is important to note that while Python 2 is still commonly Python 3.x comes with its perks too. I recommend that you learn Python 3.x and then..."
 external_link: "https://codebloks.wordpress.com/2016/08/05/difference-between-python-2-and-python-3/"

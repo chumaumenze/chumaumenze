@@ -1,23 +1,43 @@
 export default {
-  name: "Chuma Umenze",
-  email: "chumaumenze@gmail.com",
-  socials: [
-    {
-      name: "twitter",
-      url: "https://twitter.com/chumaumenze",
-      id: "chumaumenze"
+  author: {
+    name: "Chuma Umenze",
+    email: "chumaumenze@gmail.com",
+    username: 'chumaumenze',
+    image: require("~/assets/images/site-logo.png"),
+    gender: 'male',
+    socials: {
+      linkedin: {
+        name: "linkedin",
+        id: "chumaumenze",
+        url: "https://linkedin.com/in/chumaumenze",
+      },
+      twitter: {
+        name: "twitter",
+        id: "chumaumenze",
+        url: "https://twitter.com/chumaumenze",
+      },
+      medium: {
+        name: "medium",
+        id: "chumaumenze",
+        url: "https://medium.com/@chumaumenze",
+      },
+      github: {
+        name: "github",
+        id: "chumaumenze",
+        url: "https://github.com/chumaumenze",
+      },
+      gitlab: {
+        name: "gitlab",
+        id: "chumaumenze",
+        url: "https://gitlab.com/chumaumenze",
+      },
+      spotify: {
+        name: "spotify",
+        id: "befjaofs7n7aa28s0x60cl1gk",
+        url: "https://open.spotify.com/user/befjaofs7n7aa28s0x60cl1gk",
+      }
     },
-    {
-      name: "medium",
-      url: "https://medium.com/@chumaumenze",
-      id: "chumaumenze"
-    },
-    {
-      name: "spotify",
-      url: "https://open.spotify.com/user/befjaofs7n7aa28s0x60cl1gk",
-      id: "befjaofs7n7aa28s0x60cl1gk"
-    }
-  ],
+  },
   commentType: "disqus", // disqus or graphcomment
   webTags: {
     disqus: {

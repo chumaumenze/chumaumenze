@@ -10,36 +10,26 @@
 </template>
 
 <script>
+  import GraphMeta from "~/mixins/GraphMeta.vue";
+
+  
   export default {
     name: "NotFound",
+    mixins: [GraphMeta],
+    data() {
+      return {
+        graphMeta: {
+          title: '404 - not found',
+          description: "We couldn't find the lost page"
+        }
+      }
+    },
     methods: {
       async randomPost() {
         let posts = await this.$fetch('/blog');
         posts = posts.data.posts.edges
         let randPost = posts && posts[Math.floor(Math.random() * posts.length)]
         return window.location = randPost.node.path || '/'
-      }
-    },
-    metaInfo () {
-      return {
-        title: '404',
-        meta: [
-          {
-            key: 'description',
-            name: 'description',
-            content: "We couldn't find the lost page"
-          },
-          {
-            key: 'og:description',
-            name: 'og:description',
-            content: "We couldn't find the lost page"
-          },
-          {
-            key: "og:title",
-            property: "og:title",
-            content: `404 - not found | ${this.$parent.$static.metadata.siteName}`
-          },
-        ]
       }
     }
   }

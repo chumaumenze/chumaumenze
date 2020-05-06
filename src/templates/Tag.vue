@@ -28,7 +28,7 @@ query ($id: ID!, $page: Int = 1) {
             path
             id
             title
-            date (format: "MMMM DD, YYYY")
+            date: published_time(format: "MMMM DD, YYYY")
             timeToRead
             description
             cover_image (width: 770, height: 380, blur: 10)
@@ -49,38 +49,22 @@ query ($id: ID!, $page: Int = 1) {
 <script>
 import PostCard from '~/components/PostCard.vue'
 import BlogInfiniteLoader from "../components/BlogInfiniteLoader";
+import GraphMeta from "~/mixins/GraphMeta.vue";
 
 export default {
   name: 'Tag',
+  mixins: [GraphMeta],
   components: {
     BlogInfiniteLoader,
     PostCard
   },
-  metaInfo() {
-    return {
-      title: `#${this.$page.tag.title}`,
-      meta: [
-        {
-          key: "og:title",
-          property: "og:title",
-          content: `#${this.$page.tag.title} | ${this.$parent.$static.metadata.siteName}`
-        },
-        {
-          key: 'description',
-          name: 'description',
-          content: `Articles about #${this.$page.tag.title} published by ${this.$config.name}`
-        },
-        {
-          key: 'og:description',
-          name: 'og:description',
-          content: `Articles about #${this.$page.tag.title} published by ${this.$config.name}`
-        },
-      ]
-    }
-  },
   data() {
     return {
-      tagPosts: []
+      tagPosts: [],
+      graphMeta: {
+        title: `#${this.$parent.$page.tag.title}`,
+        description: `Articles about #${this.$parent.$page.tag.title} published by ${this.$config.author.name}`
+      }
     }
   },
   methods: {

@@ -9,13 +9,8 @@
 </template>
 
 <script>
-  import { ClientOnly } from "gridsome";
-
-  export default {
+export default {
   name: "BlogInfiniteLoader",
-  components: {
-    ClientOnly
-  },
   props: {
     "currentPage": {
       type: Number | String,

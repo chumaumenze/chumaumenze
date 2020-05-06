@@ -1,8 +1,10 @@
 ---
 title: Setting up Development Environment
-date: 2016-07-30
+published_time: 2016-07-30T22:42:23.761Z
+modified_time: 2020-05-01T23:00:23.161Z
+expiration_time:
 published: true
-category: journal
+category: tech
 tags: [Atom, Bash, Coding, IDE, Programming]
 cover_image: "../../static/uploads/images/atom-editor.jpg"
 cover_image_caption: "Atom editor"

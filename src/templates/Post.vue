@@ -11,7 +11,7 @@
         hr
         // Post Content
         .post-content-box
-          div(itemscope itemtype="http://schema.org/ImageObject")
+          div.post-cover-image-box(itemscope itemtype="http://schema.org/ImageObject")
             g-image.u-max-full-width(alt='Cover image', v-if='$page.post.cover_image', 
               :src='$page.post.cover_image' itemprop="image")
           .post-content(v-html='$page.post.content' itemprop="articleBody")
@@ -27,6 +27,12 @@
   @import "~/assets/style/variables";
 
   #blog-post {
+    .post-cover-image-box {
+      margin-bottom: 2rem;
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+    }
     
     .post-content {
       img,
@@ -44,56 +50,38 @@
 
 <script>
   import PostMeta from "~/components/PostMeta.vue";
+  import GraphMeta from "~/mixins/GraphMeta.vue";
   
   export default {
+  name: 'BlogPost',
   components: {PostMeta},
-  metaInfo () {
+  mixins: [GraphMeta],
+  data(){
+    let graphMeta = {
+      type: 'article',
+      title: this.$parent.$page.post.title,
+      description: this.$parent.$page.post.description,
+      article: {
+        published_time: this.$parent.$page.post.published_time,
+        modified_time: this.$parent.$page.post.modified_time,
+        expiration_time: this.$parent.$page.post.expiration_time,
+        author: this.$parent.$static.metadata.siteUrl + '/about',
+        tag: this.$parent.$page.post.tags
+          && this.$parent.$page.post.tags.map(t=>(t.title)).join(' ') || 'journal',
+      },
+    }
+    if(this.$parent.$page.post.cover_image) {
+      graphMeta.image = []
+      graphMeta.image.push({
+        url: this.$parent.$static.metadata.siteUrl + this.$parent.$page.post.cover_image.src,
+        width: this.$parent.$page.post.cover_image.size.width,
+        height: this.$parent.$page.post.cover_image.size.height,
+        alt: this.$parent.$page.post.cover_image_caption,
+        type: this.$parent.$page.post.cover_image.mimeType
+      })
+    }
     return {
-      title: this.$page.post.title,
-      meta: [
-        {
-          key: 'description',
-          name: 'description',
-          content: this.$page.post.description
-        },
-        {
-          key: 'og:description',
-          name: 'og:description',
-          content: this.$page.post.description
-        },
-        {
-          key: "og:type",
-          property: "og:type",
-          content: "article"
-        },
-        {
-          key: "og:title",
-          property: "og:title",
-          content: `${this.$page.post.title} | ${this.$parent.$static.metadata.siteName}`
-        },
-        {
-          key: "og:url",
-          property: "og:url",
-          content: this.$parent.$static.metadata.siteUrl + this.$page.post.path
-        },
-        {
-          key: "og:image",
-          property: "og:image",
-          content: this.$parent.$static.metadata.siteUrl +
-            (this.$page.post.cover_image && this.$page.post.cover_image.src) 
-            || `${require("~/assets/images/profile.png")}`
-        },
-        {
-          key: "article:published_time",
-          property: "article:published_time",
-          content: this.$page.post.ogpDate
-        },
-        {
-          key: "article:author",
-          property: "article:author",
-          content: this.$parent.$static.metadata.siteUrl + '/about'
-        },
-      ]
+      graphMeta: graphMeta,
     }
   }
 }
@@ -105,8 +93,9 @@ query Post ($id: ID!) {
     id
     title
     path
-    date (format: "MMMM DD, YYYY")
-    ogpDate: date(format: "YYYY-MM-DD")
+    date: published_time(format: "MMMM DD, YYYY")
+    published_time(format: "YYYY-MM-DD")
+    modified_time(format: "YYYY-MM-DD")
     timeToRead
     tags {
       id
