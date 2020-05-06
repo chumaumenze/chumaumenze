@@ -30,6 +30,7 @@ collections:
          { label: "Essay", value: "essay" }, 
          { label: "Photo", value: "photo" },
          { label: "Journal", value: "journal" },
+         { label: "Tech", value: "tech" },
          { label: "General", value: "general" },
          { label: "Prose", value: "prose" },
          { label: "Poem", value: "poem" },

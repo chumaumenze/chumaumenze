@@ -11,7 +11,7 @@
         hr
         // Post Content
         .post-content-box
-          div(itemscope itemtype="http://schema.org/ImageObject")
+          div.post-cover-image-box(itemscope itemtype="http://schema.org/ImageObject")
             g-image.u-max-full-width(alt='Cover image', v-if='$page.post.cover_image', 
               :src='$page.post.cover_image' itemprop="image")
           .post-content(v-html='$page.post.content' itemprop="articleBody")
@@ -27,6 +27,12 @@
   @import "~/assets/style/variables";
 
   #blog-post {
+    .post-cover-image-box {
+      margin-bottom: 2rem;
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+    }
     
     .post-content {
       img,
