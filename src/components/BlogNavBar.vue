@@ -26,7 +26,7 @@
                 li.popover-item
                   g-link.popover-link(to='/tags') Tags
                 li.popover-item
-                  g-link.popover-link(href='/ideas') Ideas
+                  g-link.popover-link(to='/ideas') Ideas
 
 </template>
 
