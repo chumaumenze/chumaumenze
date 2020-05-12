@@ -6,7 +6,7 @@
     "build": "gridsome build && yarn run pingBack",
     "serve": "gridsome develop",
     "netlify-serve": "netlify dev",
-    "netlify-build": "netlify build",
+    "netlify-build": "netlify build && yarn run pingBack",
     "explore": "gridsome explore",
     "pingBack": "node script.js pingBack"
   },

@@ -16,7 +16,8 @@ async function pingBack() {
   return await fetch(url)
 }
 
-if (process.argv.includes("pingBack") || process.argv.includes("ping")) {
+if ((process.argv.includes("pingBack") || process.argv.includes("ping")) 
+  && process.env.NODE_ENV == 'production') {
   console.info("Initiate Pingback!!!")
   pingBack().then(
     r => console.log(r.status, r)
