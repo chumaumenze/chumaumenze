@@ -4,7 +4,7 @@
       h1 404 - not found
       p We couldn't find the lost page. Try 
         g-link(to="/") this 
-        | or would you like to 
+        | or would you like 
         a(@click.active="randomPost()") something cooler
         | ?
 </template>

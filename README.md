@@ -1,5 +1,7 @@
 ## Zuko
-================
+===
+
+[![Netlify Status][NetlifyBadge]][NetlifyDeploys]
 
 > ##### Men at work
 > A simple, hackable & minimalistic starter for Gridsome that uses Markdown for content.
@@ -29,3 +31,7 @@ TBA
 2. `cd my-site` to open folder
 3. `gridsome develop` to start local dev server at `http://localhost:8080`
 4. Happy coding 🎉
+
+
+[NetlifyBadge]: https://api.netlify.com/api/v1/badges/305e1412-c40f-4f87-a2df-655f2e854d7d/deploy-status
+[NetlifyDeploys]: https://app.netlify.com/sites/chumaumenze/deploys

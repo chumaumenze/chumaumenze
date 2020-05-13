@@ -56,14 +56,6 @@
 <style lang="scss" scoped>
   @import "~/assets/style/variables";
   
-  .note {
-    background: #fffaf0;
-    border: 1px solid #ed8937;
-    color: #ed8937;
-    border-radius: 4px;
-    padding: 6px 16px;
-    margin-top: 8px;
-  }
   .svg-bg {
     background-color: lightgrey;
     border-radius: 20%;

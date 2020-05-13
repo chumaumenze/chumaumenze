@@ -3,11 +3,12 @@
   "version": "0.2.1",
   "private": true,
   "scripts": {
-    "build": "gridsome build",
+    "build": "gridsome build && yarn run pingBack",
     "serve": "gridsome develop",
     "netlify-serve": "netlify dev",
-    "netlify-build": "netlify build",
-    "explore": "gridsome explore"
+    "netlify-build": "netlify build && yarn run pingBack",
+    "explore": "gridsome explore",
+    "pingBack": "node script.js pingBack"
   },
   "dependencies": {
     "@gridsome/plugin-google-analytics": "^0.1.0",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "gridsome-plugin-pug": "^0.0.3",
+    "node-fetch": "^2.6.0",
     "node-sass": "^4.12.0",
     "pug": "^2.0.4",
     "sass-loader": "^8.0.0"
