@@ -145,6 +145,25 @@ module.exports = {
           content: node.content
         })
       }
+    },
+    {
+      use: 'gridsome-plugin-pwa',
+      options: {
+        title: 'Chuma Umenze',
+        startUrl: '/',
+        display: 'standalone',
+        statusBarStyle: 'default',
+        manifestPath: 'manifest.json',
+        disableServiceWorker: process.env.NODE_ENV !== 'production',
+        serviceWorkerPath: 'service-worker.js',
+        cachedFileTypes: 'js,json,css,html,png,jpg,jpeg,svg',
+        shortName: 'Chuma',
+        themeColor: '#636363',
+        backgroundColor: '#fafafa',
+        icon: './src/assets/images/favicon.png',
+        msTileImage: './src/assets/images/favicon.png',
+        msTileColor: '#636363'
+      }
     }
   ],
 
