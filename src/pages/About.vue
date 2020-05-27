@@ -16,7 +16,7 @@
             div
               //img.image(src="../assets/images/profile.png")
               g-image.image(src="../assets/images/goofy.jpeg")
-              h5 Chuma Zuko Umenze
+              h5 Chuma Umenze
               a(:href="`mailto:${this.$config.author.email}`") {{this.$config.author.email}}
               social-link 
           .eight.columns
@@ -48,6 +48,7 @@
               | favourites.
             p Want to know more about me? Let's 
               g-link(to="/connect") chat.
+            p.sign Zuko
 
 </template>
 
@@ -59,6 +60,10 @@
       margin-top: 2rem;
       margin-bottom: 0;
     }
+  }
+  .sign {
+    font-size: 2em;
+    font-family: 'La Belle Aurore', cursive;
   }
   .image {
     width: 35%;
