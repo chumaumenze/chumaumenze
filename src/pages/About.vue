@@ -16,7 +16,7 @@
             div
               //img.image(src="../assets/images/profile.png")
               g-image.image(src="../assets/images/goofy.jpeg")
-              h5 Chuma Zuko Umenze
+              h5 Chuma Umenze
               a(:href="`mailto:${this.$config.author.email}`") {{this.$config.author.email}}
               social-link 
           .eight.columns
