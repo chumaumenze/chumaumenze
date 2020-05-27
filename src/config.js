@@ -1,7 +1,7 @@
 export default {
   author: {
     name: "Chuma Umenze",
-    email: "chumaumenze@gmail.com",
+    email: "hello@chumaumenze.com",
     username: 'chumaumenze',
     image: require("~/assets/images/site-logo.png"),
     gender: 'male',

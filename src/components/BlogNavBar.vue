@@ -15,7 +15,7 @@
             g-link.navbar-link(to="/blog") Blog
           li.navbar-item
             g-link.navbar-link(to="/connect") Connect
-          li.navbar-item
+          //li.navbar-item
             a.navbar-link(href='#', data-popover='#blog-nav-more') More
             #blog-nav-more.popover
               ul.popover-list
