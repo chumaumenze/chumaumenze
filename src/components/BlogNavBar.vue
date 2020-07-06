@@ -9,7 +9,7 @@
         ul.navbar-list
           li.navbar-item(v-if="isSticky")
             g-link.navbar-link(to="/" exact) {{$static.metadata.siteName.split(' ')[0]}}
-          li.navbar-item
+          //li.navbar-item
             g-link.navbar-link(to="/about") About
           //li.navbar-item
             g-link.navbar-link(to="/blog") Blog
