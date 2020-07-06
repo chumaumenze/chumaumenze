@@ -11,7 +11,7 @@
             g-link.navbar-link(to="/" exact) {{$static.metadata.siteName.split(' ')[0]}}
           li.navbar-item
             g-link.navbar-link(to="/about") About
-          li.navbar-item
+          //li.navbar-item
             g-link.navbar-link(to="/blog") Blog
           li.navbar-item
             g-link.navbar-link(to="/connect") Connect
